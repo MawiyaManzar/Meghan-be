@@ -1,0 +1,25 @@
+# FastAPI and server
+fastapi[standard] 
+uvicorn[standard] 
+
+# Environment variables
+pydantic-settings  
+python-dotenv  
+
+# Database (SQLAlchemy)
+sqlalchemy  
+alembic  
+
+# Authentication
+python-jose[cryptography]  
+passlib[bcrypt]  
+python-multipart  
+
+# LangChain and LLM
+langchain  
+langchain-google-genai  
+google-generativeai  
+
+# Utilities
+python-dateutil  
+
