@@ -58,3 +58,4 @@ htmlcov/
 # Alembic
 alembic/versions/*.pyc
 STRUCTURE.md
+.cursor/
