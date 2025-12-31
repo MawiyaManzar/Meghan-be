@@ -32,6 +32,11 @@ class Settings(BaseSettings):
     
     # LLM / Gemini API
     GEMINI_API_KEY: Optional[str] = None
+    GEMINI_MODEL: str = "gemini-2.5-flash"  # Default model, can be overridden (e.g., "gemini-1.5-pro", "gemini-2.0-flash-exp")
+    GEMINI_TEMPERATURE: float = 0.7
+    GEMINI_TOP_P: float = 0.95
+    GEMINI_MAX_OUTPUT_TOKENS: int = 500
+    GEMINI_THINKING_BUDGET: int = 200  # Note: May need special handling depending on model support
     
     @field_validator("CORS_ORIGINS", mode="before")
     @classmethod

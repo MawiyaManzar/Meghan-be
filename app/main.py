@@ -4,6 +4,7 @@ Main FastAPI application entry point.
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.core.config import settings
+from app.routers import auth, llm
 
 # Initialize FastAPI app
 app = FastAPI(
@@ -38,4 +39,9 @@ async def root():
 async def health_check():
     """Health check endpoint."""
     return {"status": "healthy"}
+
+
+# Include routers
+app.include_router(auth.router)
+app.include_router(llm.router)
 
