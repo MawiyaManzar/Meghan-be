@@ -6,6 +6,10 @@ from pydantic_settings import BaseSettings
 from pydantic import field_validator
 from typing import Optional, Union
 import json
+from pathlib import Path
+
+# Get the project root directory (parent of app/)
+BASE_DIR = Path(__file__).parent.parent.parent
 
 
 class Settings(BaseSettings):
@@ -28,7 +32,7 @@ class Settings(BaseSettings):
     CORS_ORIGINS: Union[str, list[str]] = "http://localhost:5173,http://localhost:3000"
     
     # Database
-    DATABASE_URL: str = "sqlite:///./meghan.db"
+    DATABASE_URL: str = f"sqlite:///{BASE_DIR / 'meghan.db'}"
     
     # LLM / Gemini API
     GEMINI_API_KEY: Optional[str] = None
@@ -57,8 +61,24 @@ class Settings(BaseSettings):
         return v
     
     class Config:
-        env_file = ".env"
+        env_file = str(BASE_DIR / ".env")  # Use absolute path for .env file too
         case_sensitive = True
+    
+    @field_validator("DATABASE_URL", mode="before")
+    @classmethod
+    def make_db_path_absolute(cls, v):
+        """Convert relative database paths to absolute paths."""
+        if isinstance(v, str):
+            if v.startswith("sqlite:///./"):
+                # Convert relative path to absolute
+                db_name = v.replace("sqlite:///./", "")
+                abs_path = BASE_DIR / db_name
+                # Use 3 slashes: sqlite:///path
+                return f"sqlite:///{abs_path.as_posix()}"
+            elif v.startswith("sqlite:///"):
+                # Already absolute or explicit path, return as-is
+                return v
+        return v
 
 
 # Global settings instance
