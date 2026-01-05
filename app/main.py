@@ -4,7 +4,7 @@ Main FastAPI application entry point.
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.core.config import settings
-from app.routers import auth, llm, chat
+from app.routers import auth, llm, chat, users
 
 # Initialize FastAPI app
 app = FastAPI(
@@ -45,4 +45,5 @@ async def health_check():
 app.include_router(auth.router)
 app.include_router(llm.router)
 app.include_router(chat.router)
+app.include_router(users.router)
 

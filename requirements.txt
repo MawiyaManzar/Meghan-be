@@ -21,5 +21,9 @@ langchain-google-genai
 google-generativeai  
 
 # Utilities
-python-dateutil  
+python-dateutil
+
+# Testing
+pytest
+httpx  
 

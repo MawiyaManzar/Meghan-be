@@ -4,7 +4,7 @@ Handles conversation creation, message retrieval, and message sending with LLM.
 """
 import logging
 import math
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import List, Optional, Dict, Any
 from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
@@ -126,8 +126,8 @@ def add_xp_to_user_state(db: Session, user_id: int, amount: int) -> UserState:
 @router.post("/conversations", response_model=ConversationResponse, status_code=status.HTTP_201_CREATED)
 async def create_conversation(
     conversation_data: ConversationCreate,
-    current_user: (CurrentUser),
-    db: (DatabaseSession)
+    current_user: CurrentUser,
+    db: DatabaseSession
 ):
     """
     Create a new conversation.
@@ -183,8 +183,8 @@ async def create_conversation(
 
 @router.get("/conversations", response_model=ConversationListResponse)
 async def list_conversations(
-    current_user: (CurrentUser),
-    db: (DatabaseSession)
+    current_user: CurrentUser,
+    db: DatabaseSession
 ):
     """
     List all conversations for the current user.
@@ -206,8 +206,8 @@ async def list_conversations(
 @router.get("/conversations/{conversation_id}/messages", response_model=ChatHistoryResponse)
 async def get_conversation_messages(
     conversation_id: int,
-    current_user: (CurrentUser),
-    db: (DatabaseSession)
+    current_user: CurrentUser,
+    db: DatabaseSession
 ):
     """
     Get all messages for a specific conversation.
@@ -253,8 +253,8 @@ async def get_conversation_messages(
 async def send_message(
     conversation_id: int,
     message_data: ChatMessageCreate,
-    current_user: (CurrentUser),
-    db: (DatabaseSession)
+    current_user: CurrentUser,
+    db: DatabaseSession
 ):
     """
     Send a message in a conversation and get AI response.
@@ -357,7 +357,7 @@ async def send_message(
         db.refresh(model_message)
         
         # Update conversation timestamp
-        conversation.updated_at = datetime.utcnow()
+        conversation.updated_at = datetime.now(timezone.utc)
         db.commit()
         
         # Award XP for sending message
