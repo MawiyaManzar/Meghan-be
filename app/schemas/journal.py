@@ -4,7 +4,7 @@ Journal Schemas for Project Meghan
 Handles journal entries for sentiment tracking.
 """
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, ConfigDict
 from datetime import datetime
 from typing import Optional, List
 
@@ -17,6 +17,8 @@ class JournalEntryUpdate(BaseModel):
     content: Optional[str] = Field(None, description="Journal entry text for editing")
 
 class JournalEntryResponse(BaseModel):
+    model_config = ConfigDict(from_attributes=True)
+    
     id: int
     user_id: int
     content: str
@@ -24,9 +26,6 @@ class JournalEntryResponse(BaseModel):
     tier_at_time: Optional[str] = None
     xp_gained: int = 30  # XP awarded (default: 30)
     created_at: datetime
-
-    class Config:
-        from_attributes = True
 
 class JournalEntryListResponse(BaseModel):
     entries: List[JournalEntryResponse]

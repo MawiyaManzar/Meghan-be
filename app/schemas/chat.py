@@ -4,7 +4,7 @@ Chat Schemas for Project Meghan
 Handles conversation and chat message request/response schemas.
 """
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, ConfigDict
 from datetime import datetime
 from typing import Optional, List
 
@@ -19,13 +19,12 @@ class ConversationCreate(BaseModel):
     source: Optional[str] = Field(None, description="Stress source at conversation start. If not provided, uses current user state.")
 
 class ConversationResponse(ConversationBase):
+    model_config = ConfigDict(from_attributes=True)
+    
     id: int
     user_id: int
     created_at: datetime
     updated_at: datetime
-
-    class Config:
-        from_attributes = True
 
 class ChatMessageBase(BaseModel):
     role: str = Field(description="Values: 'user', 'model'")
@@ -35,14 +34,13 @@ class ChatMessageCreate(ChatMessageBase):
     pass
 
 class ChatMessageResponse(BaseModel):
+    model_config = ConfigDict(from_attributes=True)
+    
     id: int
     conversation_id: int
     role: str
     content: str
     created_at: datetime
-
-    class Config:
-        from_attributes = True
 
 class ConversationListResponse(BaseModel):
     conversations: List[ConversationResponse]

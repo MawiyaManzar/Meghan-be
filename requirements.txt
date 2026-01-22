@@ -6,9 +6,14 @@ uvicorn[standard]
 pydantic-settings  
 python-dotenv  
 
-# Database (SQLAlchemy)
+# Database (SQLAlchemy + PostgreSQL + MongoDB)
 sqlalchemy  
-alembic  
+alembic
+asyncpg  # PostgreSQL async driver
+psycopg2-binary  # PostgreSQL sync driver
+aiosqlite  # SQLite async driver
+motor  # MongoDB async driver
+pymongo  # MongoDB sync driver  
 
 # Authentication
 python-jose[cryptography]  
@@ -25,5 +30,13 @@ python-dateutil
 
 # Testing
 pytest
+pytest-asyncio  # For async test support
+pytest-cov  # For coverage reporting
+pytest-mock  # For mocking support
 httpx  
+hypothesis  # For property-based testing  
+
+# Redis for caching and sessions
+redis
+aioredis  
 

@@ -2,7 +2,7 @@
 Configuration settings for the FastAPI application.
 Handles environment variables and application settings.
 """
-from pydantic_settings import BaseSettings
+from pydantic_settings import BaseSettings, SettingsConfigDict
 from pydantic import field_validator
 from typing import Optional, Union
 import json
@@ -18,7 +18,7 @@ class Settings(BaseSettings):
     # Application settings
     APP_NAME: str = "Meghan API"
     APP_VERSION: str = "1.0.0"
-    DEBUG: bool = False
+    DEBUG: bool = True  # Set to False in production
     
     # API Settings
     API_V1_PREFIX: str = "/api/v1"
@@ -31,8 +31,20 @@ class Settings(BaseSettings):
     # CORS - Can be JSON array string or comma-separated string
     CORS_ORIGINS: Union[str, list[str]] = "http://localhost:5173,http://localhost:3000"
     
-    # Database
-    DATABASE_URL: str = f"sqlite:///{BASE_DIR / 'meghan.db'}"
+    # Database - PostgreSQL (primary)
+    DATABASE_URL: str = f"sqlite:///{BASE_DIR / 'meghan.db'}"  # Default fallback
+    POSTGRES_HOST: str = "localhost"
+    POSTGRES_PORT: int = 5432
+    POSTGRES_DB: str = "meghan"
+    POSTGRES_USER: str = "meghan_user"
+    POSTGRES_PASSWORD: str = "meghan_password"
+    
+    # MongoDB (for chat sessions and wellbeing data)
+    MONGODB_URL: str = "mongodb://localhost:27017"
+    MONGODB_DB: str = "meghan_chat"
+    
+    # Redis (for caching and sessions)
+    REDIS_URL: str = "redis://localhost:6379/0"
     
     # LLM / Gemini API
     GEMINI_API_KEY: Optional[str] = None
@@ -60,9 +72,10 @@ class Settings(BaseSettings):
             return [origin.strip() for origin in v.split(",") if origin.strip()]
         return v
     
-    class Config:
-        env_file = str(BASE_DIR / ".env")  # Use absolute path for .env file too
-        case_sensitive = True
+    model_config = SettingsConfigDict(
+        env_file=str(BASE_DIR / ".env"),  # Use absolute path for .env file too
+        case_sensitive=True
+    )
     
     @field_validator("DATABASE_URL", mode="before")
     @classmethod
@@ -79,6 +92,11 @@ class Settings(BaseSettings):
                 # Already absolute or explicit path, return as-is
                 return v
         return v
+    
+    @property
+    def postgres_url(self) -> str:
+        """Build PostgreSQL connection URL from components."""
+        return f"postgresql+asyncpg://{self.POSTGRES_USER}:{self.POSTGRES_PASSWORD}@{self.POSTGRES_HOST}:{self.POSTGRES_PORT}/{self.POSTGRES_DB}"
 
 
 # Global settings instance

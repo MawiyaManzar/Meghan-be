@@ -55,8 +55,8 @@ logs/
 .coverage
 htmlcov/
 
+node_modules
 # Alembic
 alembic/versions/*.pyc
 STRUCTURE.md
 .cursor/
-.node_modules

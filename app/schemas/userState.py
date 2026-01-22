@@ -1,4 +1,4 @@
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, ConfigDict
 from typing import Optional
 from datetime import datetime
 
@@ -24,6 +24,8 @@ class UserStateUpdate(BaseModel):
     pomo_sessions: Optional[int] = Field(None, description="Pomodoro sessions completed")
 
 class UserStateResponse(BaseModel):
+    model_config = ConfigDict(from_attributes=True)
+    
     id: int
     user_id: int
     mood: str
@@ -36,9 +38,6 @@ class UserStateResponse(BaseModel):
     sleep_hours: int
     pomo_sessions: int
     last_updated: datetime
-
-    class Config:
-        from_attributes = True
 
 class XPAddRequest(BaseModel):
     amount: int = Field(description="XP amount to add", gt=0)
