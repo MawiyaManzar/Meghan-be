@@ -16,6 +16,7 @@ from app.schemas.userState import (
     XPAddResponse
 )
 from app.schemas.user import UserProfileResponse, UserProfileUpdate
+from app.schemas.dashboard import DashboardResponse
 
 logger = logging.getLogger(__name__)
 
@@ -23,6 +24,7 @@ router = APIRouter(prefix="/api/users", tags=["users"])
 
 # XP bonus per bio field completion
 XP_PER_BIO_FIELD = 20
+
 
 
 def calculate_level(xp: int) -> int:
@@ -280,3 +282,44 @@ async def update_user_profile(
     logger.info(f"Updated profile for user {current_user.id}")
     return profile
 
+@router.get("/me/dashboard",response_model=DashboardResponse)
+async def get_dashboard(current_user:CurrentUser,db:DatabaseSession):
+    """
+    Get aggregated dashboard data for the current user.
+    
+    This endpoint combines user state, profile, and calculated metrics
+    to provide a complete dashboard view for the frontend.
+    
+    Args:
+        current_user: Current authenticated user
+        db: Database session
+    
+    Returns:
+        Dashboard data including state, profile, hearts balance, and weekly summary
+    """
+
+    user_state = get_or_create_user_state(db, current_user.id)
+
+    user_profile =get_or_create_user_profile(db, current_user.id)
+
+    hearts_balance = user_state.xp
+
+    # Step 4: Calculate XP to next level
+    # Formula: 200 - (xp % 200)
+    # Example: If XP is 350, then 350 % 200 = 150, so 200 - 150 = 50 XP needed
+    xp_to_next_level = 200 - (user_state.xp % 200) if user_state.xp % 200 != 0 else 0
+
+    # Step 5: Calculate progress percentages (optional, can be None for now)
+    # This would require goal settings, which we don't have yet
+    progress_percentages = None
+
+    weekly_summary = None
+
+    return DashboardResponse(
+        state=user_state,
+        profile=user_profile,
+        hearts_balance= hearts_balance,
+        xp_to_next_level= xp_to_next_level,
+        progress_percentages= progress_percentages,
+        weekly_summary= weekly_summary
+    )

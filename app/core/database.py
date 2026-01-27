@@ -42,7 +42,7 @@ redis_client: redis.Redis = None
 
 
 async def init_mongodb():
-    """Initialize MongoDB connection."""
+    """Initialize MongoDB connection. Optional - app will continue if MongoDB is unavailable."""
     global mongodb_client, mongodb_db
     try:
         mongodb_client = AsyncIOMotorClient(settings.MONGODB_URL)
@@ -51,12 +51,14 @@ async def init_mongodb():
         await mongodb_client.admin.command('ping')
         logger.info("MongoDB connected successfully")
     except Exception as e:
-        logger.error(f"MongoDB connection failed: {e}")
-        raise
+        logger.warning(f"MongoDB connection failed (optional): {e}")
+        logger.warning("App will continue without MongoDB. Chat logs and wellbeing data features will be unavailable.")
+        mongodb_client = None
+        mongodb_db = None
 
 
 async def init_redis():
-    """Initialize Redis connection."""
+    """Initialize Redis connection. Optional - app will continue if Redis is unavailable."""
     global redis_client
     try:
         redis_client = redis.from_url(settings.REDIS_URL)
@@ -64,8 +66,9 @@ async def init_redis():
         await redis_client.ping()
         logger.info("Redis connected successfully")
     except Exception as e:
-        logger.error(f"Redis connection failed: {e}")
-        raise
+        logger.warning(f"Redis connection failed (optional): {e}")
+        logger.warning("App will continue without Redis. Caching features will be unavailable.")
+        redis_client = None
 
 
 async def close_mongodb():
@@ -111,13 +114,19 @@ async def get_async_db() -> AsyncSession:
 def get_mongodb():
     """
     Dependency function to get MongoDB database.
+    Returns None if MongoDB is not available.
     """
+    if mongodb_db is None:
+        logger.warning("MongoDB is not available. Some features may be unavailable.")
     return mongodb_db
 
 
 def get_redis():
     """
     Dependency function to get Redis client.
+    Returns None if Redis is not available.
     """
+    if redis_client is None:
+        logger.warning("Redis is not available. Caching features may be unavailable.")
     return redis_client
 

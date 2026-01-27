@@ -3,6 +3,8 @@ Schemas package for Project Meghan
 
 Exports all Pydantic schemas for API request/response validation.
 """
+from .hearts import HeartsBalance, HeartsTransactionResponse, HeartsTransactionCreate
+
 
 # Authentication schemas
 from .auth import (
@@ -115,4 +117,8 @@ __all__ = [
     "PeerClusterResponse",
     "UserClusterMembershipResponse",
     "ClusterListResponse",
+    # Hearts
+    "HeartsBalance",
+    "HeartsTransactionResponse",
+    "HeartsTransactionCreate",
 ]

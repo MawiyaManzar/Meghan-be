@@ -22,13 +22,11 @@ async def lifespan(app: FastAPI):
     """
     # Startup
     logger.info("Starting up Meghan API...")
-    try:
-        await init_mongodb()
-        await init_redis()
-        logger.info("All database connections initialized successfully")
-    except Exception as e:
-        logger.error(f"Failed to initialize databases: {e}")
-        raise
+    # Initialize optional services (MongoDB and Redis)
+    # These are optional - app will continue if they fail
+    await init_mongodb()
+    await init_redis()
+    logger.info("Application startup complete")
     
     yield
     

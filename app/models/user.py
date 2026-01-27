@@ -170,3 +170,14 @@ class UserClusterMembership(Base):
     user_id = Column(Integer, ForeignKey("users.id"), primary_key=True)
     cluster_id = Column(Integer, ForeignKey("peer_clusters.id"), primary_key=True)
     joined_at = Column(DateTime, default=func.now())
+
+class HeartsTransaction(Base):
+   __tablename__ = "hearts_transactions"
+
+   id=Column(Integer,primary_key=True,index=True)
+   user_id=Column(Integer,ForeignKey("users.id",ondelete="cascade"))
+   amount=Column(Integer,nullable=False)
+   type=Column(String,nullable=False)
+   description=Column(String,nullable=False)
+   balance_after=Column(Integer,nullable=False)
+   created_at=Column(DateTime,default=func.now(),index=True)
