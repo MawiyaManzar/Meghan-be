@@ -8,6 +8,8 @@ from app.core.config import settings
 from app.core.database import init_mongodb, init_redis, close_mongodb, close_redis
 from app.routers import auth, llm, chat, users
 import logging
+from app.routers import auth, llm, chat, users
+from app.routers import hearts  # add
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -78,4 +80,5 @@ app.include_router(auth.router)
 app.include_router(llm.router)
 app.include_router(chat.router)
 app.include_router(users.router)
+app.include_router(hearts.router)
 

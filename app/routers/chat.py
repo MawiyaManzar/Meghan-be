@@ -20,6 +20,7 @@ from app.schemas.chat import (
     ChatHistoryResponse
 )
 from app.services.chat import chat_service
+from app.services.safety import safety_service
 
 logger = logging.getLogger(__name__)
 
@@ -314,6 +315,29 @@ async def send_message(
     db.refresh(user_message)
     
     logger.info(f"User {current_user.id} sent message in conversation {conversation_id}")
+
+    # Safety Gate check (V1) - run before calling the LLM
+    safety = safety_service.assess_user_message(message_data.content)
+    
+    if not safety.allowed:
+        # Save a safe model message without calling the LLM
+        safe_model_message = ChatMessage(
+            conversation_id=conversation_id,
+            role="model",
+            content=safety.safe_reply,
+        )
+        db.add(safe_model_message)
+        db.commit()
+        db.refresh(safe_model_message)
+
+        logger.warning(
+            f"Safety gate blocked LLM for user={current_user.id}, "
+            f"conversation={conversation_id}, risk_level={safety.risk_level}, "
+            f"matches={safety.matched_phrases}"
+        )
+
+        # For now, do NOT award XP when safety gate triggers
+        return safe_model_message
     
     # Get existing chat history for context
     existing_messages = db.query(ChatMessage).filter(

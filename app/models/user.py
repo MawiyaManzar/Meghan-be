@@ -179,5 +179,6 @@ class HeartsTransaction(Base):
    amount=Column(Integer,nullable=False)
    type=Column(String,nullable=False)
    description=Column(String,nullable=False)
+   reference_id=Column(String,nullable=True)
    balance_after=Column(Integer,nullable=False)
    created_at=Column(DateTime,default=func.now(),index=True)
