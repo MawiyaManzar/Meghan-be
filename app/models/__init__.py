@@ -13,6 +13,7 @@ from app.models.user import (
     PeerCluster,
     UserClusterMembership,
     HeartsTransaction,
+    CrisisEvent,
 )
 
 __all__ = [
@@ -26,5 +27,6 @@ __all__ = [
     "PeerCluster",
     "UserClusterMembership",
     "HeartsTransaction",
+    "CrisisEvent",
 ]
 

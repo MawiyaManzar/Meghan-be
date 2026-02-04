@@ -64,13 +64,18 @@ from .journal import (
     JournalEntryListResponse,
 )
 
-# Cluster schemas
 from .cluster import (
     PeerClusterBase,
     PeerClusterCreate,
     PeerClusterResponse,
     UserClusterMembershipResponse,
     ClusterListResponse,
+)
+
+# Therapist / crisis schemas
+from .therapist import (
+    CrisisEventResponse,
+    CrisisEventListResponse,
 )
 
 __all__ = [
@@ -117,6 +122,9 @@ __all__ = [
     "PeerClusterResponse",
     "UserClusterMembershipResponse",
     "ClusterListResponse",
+    # Therapist / crisis
+    "CrisisEventResponse",
+    "CrisisEventListResponse",
     # Hearts
     "HeartsBalance",
     "HeartsTransactionResponse",

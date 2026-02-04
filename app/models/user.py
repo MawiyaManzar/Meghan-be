@@ -79,7 +79,7 @@ Model Overview:
    Relationship: Links User and PeerCluster
 """
 
-from sqlalchemy import Column, Integer, String, DateTime, func, ForeignKey, Text
+from sqlalchemy import Column, Integer, String, DateTime, func, ForeignKey, Text,Boolean
 from sqlalchemy.orm import declarative_base
 from sqlalchemy.sql.functions import now
 
@@ -91,6 +91,8 @@ class User(Base):
     id = Column(Integer, primary_key=True, index=True)
     email = Column(String, unique=True, index=True)
     password_hash = Column(String)
+    # Simple role field for access control ("user", "therapist", "admin")
+    role = Column(String, default="user", nullable=False)
     created_at = Column(DateTime, default=func.now())
     updated_at = Column(DateTime, default=func.now(), onupdate=func.now())
 
@@ -106,6 +108,11 @@ class UserProfile(Base):
     hobbies = Column(String, nullable=True)
     values = Column(String, nullable=True)
 
+    # Onboarding + privacy fields (Task 3)
+    age_range = Column(String, nullable=True)       # e.g. "18-21", "22-25"
+    life_stage = Column(String, nullable=True)      # "school", "college", "working", "job_seeking"
+    struggles = Column(Text, nullable=True)         # JSON string list, e.g. ["career","anxiety"]
+    privacy_level = Column(String, nullable=True)   # "full" | "partial" | "identified"
     created_at = Column(DateTime, default=func.now())
     updated_at = Column(DateTime, default=func.now(), onupdate=func.now())
 
@@ -182,3 +189,37 @@ class HeartsTransaction(Base):
    reference_id=Column(String,nullable=True)
    balance_after=Column(Integer,nullable=False)
    created_at=Column(DateTime,default=func.now(),index=True)
+
+class ProblemCommunity(Base):
+    __tablename__ = "problem_communities"
+
+    id = Column(Integer, primary_key=True, index=True)
+    # Positive, unique names
+    name = Column(String, unique=True, nullable=False, index=True)
+    description = Column(String, nullable=False)
+    # Internal “bucket” for routing/filtering
+    stress_source = Column(String, nullable=False)  # "Family" | "Relationship" | "Career/Academics" | "Others"
+    is_active = Column(Boolean, default=True, nullable=False)
+    created_at = Column(DateTime, default=func.now())
+
+
+class CommunityMembership(Base):
+    __tablename__ = "community_memberships"
+
+    user_id = Column(Integer, ForeignKey("users.id", ondelete="cascade"), primary_key=True)
+    community_id = Column(Integer, ForeignKey("problem_communities.id", ondelete="cascade"), primary_key=True)
+    is_anonymous = Column(Boolean, default=True, nullable=False)
+    joined_at = Column(DateTime, default=func.now())
+
+class CrisisEvent(Base):
+    __tablename__ = "crisis_events"
+
+    id = Column(Integer, primary_key=True, index=True)
+    user_id = Column(Integer, ForeignKey("users.id", ondelete="cascade"), nullable=False)
+    source = Column(String, nullable=False)  # "chat", "community", "journal"
+    community_id = Column(Integer, ForeignKey("problem_communities.id", ondelete="set null"), nullable=True)
+
+    message_excerpt = Column(Text, nullable=False)
+    risk_level = Column(String, nullable=False)  # "high" for now
+    matched_phrases = Column(Text, nullable=False)  # JSON string of patterns
+    created_at = Column(DateTime, default=func.now(), index=True)

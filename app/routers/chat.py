@@ -10,7 +10,7 @@ from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
 from app.core.database import get_db
 from app.core.dependencies import CurrentUser, DatabaseSession
-from app.models.user import User, UserState, UserProfile, Conversation, ChatMessage
+from app.models.user import User, UserState, UserProfile, Conversation, ChatMessage, CrisisEvent
 from app.schemas.chat import (
     ConversationCreate,
     ConversationResponse,
@@ -21,6 +21,10 @@ from app.schemas.chat import (
 )
 from app.services.chat import chat_service
 from app.services.safety import safety_service
+import json
+import json
+from app.models.user import CrisisEvent
+
 
 logger = logging.getLogger(__name__)
 
@@ -329,6 +333,21 @@ async def send_message(
         db.add(safe_model_message)
         db.commit()
         db.refresh(safe_model_message)
+
+        # Log crisis event for therapist monitoring
+        try:
+            event = CrisisEvent(
+                user_id=current_user.id,
+                source="chat",
+                community_id=None,
+                message_excerpt=message_data.content[:300],
+                risk_level=safety.risk_level,
+                matched_phrases=json.dumps(safety.matched_phrases),
+            )
+            db.add(event)
+            db.commit()
+        except Exception as e:
+            logger.error(f"Failed to create CrisisEvent: {e}")
 
         logger.warning(
             f"Safety gate blocked LLM for user={current_user.id}, "

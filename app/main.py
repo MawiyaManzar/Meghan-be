@@ -7,9 +7,11 @@ from contextlib import asynccontextmanager
 from app.core.config import settings
 from app.core.database import init_mongodb, init_redis, close_mongodb, close_redis
 from app.routers import auth, llm, chat, users
+from app.routers import hearts
+from app.routers import onboarding, checkins
+from app.routers import therapist
+from app.routers import communities  
 import logging
-from app.routers import auth, llm, chat, users
-from app.routers import hearts  # add
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -81,4 +83,7 @@ app.include_router(llm.router)
 app.include_router(chat.router)
 app.include_router(users.router)
 app.include_router(hearts.router)
-
+app.include_router(onboarding.router)  
+app.include_router(checkins.router)
+app.include_router(therapist.router)
+app.include_router(communities.router)

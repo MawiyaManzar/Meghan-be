@@ -45,7 +45,14 @@ async def init_mongodb():
     """Initialize MongoDB connection. Optional - app will continue if MongoDB is unavailable."""
     global mongodb_client, mongodb_db
     try:
-        mongodb_client = AsyncIOMotorClient(settings.MONGODB_URL)
+        # Keep timeouts short because MongoDB is optional in dev.
+        # This prevents long (30s) hangs on startup when MongoDB isn't running.
+        mongodb_client = AsyncIOMotorClient(
+            settings.MONGODB_URL,
+            serverSelectionTimeoutMS=2000,
+            connectTimeoutMS=2000,
+            socketTimeoutMS=2000,
+        )
         mongodb_db = mongodb_client[settings.MONGODB_DB]
         # Test connection
         await mongodb_client.admin.command('ping')
