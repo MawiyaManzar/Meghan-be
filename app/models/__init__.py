@@ -14,6 +14,8 @@ from app.models.user import (
     UserClusterMembership,
     HeartsTransaction,
     CrisisEvent,
+    MicroExpression,
+    EmpathyResponse,
 )
 
 __all__ = [
@@ -28,5 +30,7 @@ __all__ = [
     "UserClusterMembership",
     "HeartsTransaction",
     "CrisisEvent",
+    "MicroExpression",
+    "EmpathyResponse",
 ]
 

@@ -223,3 +223,25 @@ class CrisisEvent(Base):
     risk_level = Column(String, nullable=False)  # "high" for now
     matched_phrases = Column(Text, nullable=False)  # JSON string of patterns
     created_at = Column(DateTime, default=func.now(), index=True)
+
+class MicroExpression(Base):
+    __tablename__ = "micro_expressions"
+
+    id=Column(Integer,primary_key=True,index=True)
+    user_id=Column(Integer,ForeignKey("users.id",ondelete="cascade"))
+    community_id = Column(Integer,ForeignKey("ProblemCommunity.id",ondelete = "set null"),nullable = True)
+    content = Column(Text,nullable=False)
+    is_anonymous = Column(Boolean,default=True,nullable=False)
+    created_at = Column(DateTime,default=func.now(),index=True)
+
+class EmpathyResponse(Base): # this is the response to a micro expression
+    __tablename__ = "empathy_responses"
+
+    id = Column(Integer, primary_key=True, index=True)
+    expression_id = Column(Integer, ForeignKey("micro_expressions.id", ondelete="cascade"), nullable=False)
+    user_id = Column(Integer, ForeignKey("users.id", ondelete="cascade"), nullable=False)
+    content = Column(Text, nullable=False)
+    is_anonymous = Column(Boolean, default=True, nullable=False)
+    created_at = Column(DateTime, default=func.now(), index=True)
+
+

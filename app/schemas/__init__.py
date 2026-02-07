@@ -78,6 +78,15 @@ from .therapist import (
     CrisisEventListResponse,
 )
 
+from .expressions import (
+    MicroExpressionBase,
+    MicroExpressionResponse,
+    EmpathyResponseCreate,
+    EmpathyResponseResponse,
+    MicroExpressionWithResponses,
+    MicroExpressionListResponse,
+)
+
 __all__ = [
     # Auth
     "UserCreate",
@@ -129,4 +138,11 @@ __all__ = [
     "HeartsBalance",
     "HeartsTransactionResponse",
     "HeartsTransactionCreate",
+    # Expressions
+    "MicroExpressionBase",
+    "MicroExpressionResponse",
+    "EmpathyResponseCreate",
+    "EmpathyResponseResponse",
+    "MicroExpressionWithResponses",
+    "MicroExpressionListResponse",
 ]

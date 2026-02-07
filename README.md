@@ -2,6 +2,7 @@
 
 FastAPI backend for **Meghan**, an AI-powered Student Wellness Assistant for students and young adults.
 
+
 ## Why Meghan
 
 - **Problem**: Students and young adults experience relentless daily stress (exams, career, finances, family, social comparison), often amplified by social media's impact on anxiety and distraction.
