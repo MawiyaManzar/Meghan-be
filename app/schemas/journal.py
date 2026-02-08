@@ -10,8 +10,8 @@ from typing import Optional, List
 
 class JournalEntryCreate(BaseModel):
     content: str = Field(description="Journal entry text")
-    mood_at_time: Optional[str] = Field(None, description="Mood when entry was created (can be inferred from current state)")
-    tier_at_time: Optional[str] = Field(None, description="Risk tier when entry was created (can be inferred from current state)")
+    mood_at_time: Optional[str] = Field(None, description="Mood when entry was created (optional)")
+    tier_at_time: Optional[str] = Field(None, description="Risk tier when entry was created (optional)")
 
 class JournalEntryUpdate(BaseModel):
     content: Optional[str] = Field(None, description="Journal entry text for editing")
@@ -30,3 +30,12 @@ class JournalEntryResponse(BaseModel):
 class JournalEntryListResponse(BaseModel):
     entries: List[JournalEntryResponse]
     total: int  # Total number of entries
+
+class JournalPromptResponse(BaseModel):
+    id: str  # e.g., "gratitude", "reflection", "stress_relief"
+    title:str
+    description:str
+    prompt_text:str
+
+class JournalPromptListResponse(BaseModel):
+    prompts: List[JournalPromptResponse]

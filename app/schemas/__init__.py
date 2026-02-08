@@ -62,6 +62,8 @@ from .journal import (
     JournalEntryUpdate,
     JournalEntryResponse,
     JournalEntryListResponse,
+    JournalPromptResponse,
+    JournalPromptListResponse
 )
 
 from .cluster import (
@@ -79,12 +81,21 @@ from .therapist import (
 )
 
 from .expressions import (
-    MicroExpressionBase,
+    MicroExpressionCreate,
     MicroExpressionResponse,
     EmpathyResponseCreate,
     EmpathyResponseResponse,
     MicroExpressionWithResponses,
     MicroExpressionListResponse,
+)
+
+# Insights schemas
+from .insights import (
+    WeeklyInsightsResponse,
+    MoodTrend,
+    TriggerPattern,
+    ProgressIndicator,
+    Recommendation,
 )
 
 __all__ = [
@@ -125,6 +136,8 @@ __all__ = [
     "JournalEntryUpdate",
     "JournalEntryResponse",
     "JournalEntryListResponse",
+    "JournalPromptResponse",       # <-- add
+    "JournalPromptListResponse",   # <-- add
     # Cluster
     "PeerClusterBase",
     "PeerClusterCreate",
@@ -139,10 +152,16 @@ __all__ = [
     "HeartsTransactionResponse",
     "HeartsTransactionCreate",
     # Expressions
-    "MicroExpressionBase",
+    "MicroExpressionCreate",
     "MicroExpressionResponse",
     "EmpathyResponseCreate",
     "EmpathyResponseResponse",
     "MicroExpressionWithResponses",
     "MicroExpressionListResponse",
+    # Insights
+    "WeeklyInsightsResponse",
+    "MoodTrend",
+    "TriggerPattern",
+    "ProgressIndicator",
+    "Recommendation",
 ]

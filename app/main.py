@@ -12,7 +12,9 @@ from app.routers import onboarding, checkins
 from app.routers import therapist
 from app.routers import communities  
 import logging
-from app.routers import expressions  # <-- add
+from app.routers import expressions  
+from app.routers import journal
+from app.routers import insights
 # Configure logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -88,3 +90,5 @@ app.include_router(checkins.router)
 app.include_router(therapist.router)
 app.include_router(communities.router)
 app.include_router(expressions.router)  
+app.include_router(journal.router)
+app.include_router(insights.router)

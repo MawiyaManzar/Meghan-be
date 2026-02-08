@@ -228,8 +228,8 @@ class MicroExpression(Base):
     __tablename__ = "micro_expressions"
 
     id=Column(Integer,primary_key=True,index=True)
-    user_id=Column(Integer,ForeignKey("users.id",ondelete="cascade"))
-    community_id = Column(Integer,ForeignKey("ProblemCommunity.id",ondelete = "set null"),nullable = True)
+    user_id=Column(Integer,ForeignKey("users.id",ondelete="cascade"),nullable=False)
+    community_id = Column(Integer,ForeignKey("problem_communities.id",ondelete = "set null"),nullable = True)
     content = Column(Text,nullable=False)
     is_anonymous = Column(Boolean,default=True,nullable=False)
     created_at = Column(DateTime,default=func.now(),index=True)

@@ -18,7 +18,7 @@ class MicroExpressionResponse(BaseModel):
     hearts_awarded:Optional[int] = None
 
 class EmpathyResponseCreate(BaseModel):
-   content:str=Field(description="The content of the empathy response")
+   content:str=Field(..., max_length=280, description="The content of the empathy response")
    is_anonymous:bool=True
 
 class EmpathyResponseResponse(BaseModel):

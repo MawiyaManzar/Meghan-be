@@ -63,13 +63,13 @@ async def create_expression(
             detail="Message appears to contain high-risk content and cannot be posted.",
         )
 
-        # Optional: validate community_id exists if provided
+    # Optional: validate community_id exists if provided
     if payload.community_id is not None:
-            community = db.query(ProblemCommunity).filter(
+        community = db.query(ProblemCommunity).filter(
             ProblemCommunity.id == payload.community_id,
             ProblemCommunity.is_active == True,
-            ).first()
-    if not community:
+        ).first()
+        if not community:
             raise HTTPException(status_code=404, detail="Community not found")
     
     expression = MicroExpression(
@@ -103,8 +103,8 @@ async def create_expression(
 
 @router.get("",response_model=MicroExpressionListResponse)
 async def list_expression(
+    current_user: CurrentUser,
     db:DatabaseSession,
-    current_user = CurrentUser,
     community_id:int|None =None,
     limit:int=20,
     offset:int=0
@@ -186,7 +186,7 @@ async def add_empathy_response(
         is_anonymous= payload.is_anonymous
     )
 
-    db.add()
+    db.add(response)
     db.commit()
     db.refresh(response)
 
