@@ -1,6 +1,5 @@
 """
-Chat router for handling conversations and messages.
-Handles conversation creation, message retrieval, and message sending with LLM.
+Chat router handling conversation lifecycle, safety gating, LLM orchestration, and crisis escalation.
 """
 import logging
 import math
@@ -21,7 +20,6 @@ from app.schemas.chat import (
 )
 from app.services.chat import chat_service
 from app.services.safety import safety_service
-import json
 import json
 from app.models.user import CrisisEvent
 
@@ -321,6 +319,7 @@ async def send_message(
     logger.info(f"User {current_user.id} sent message in conversation {conversation_id}")
 
     # Safety Gate check (V1) - run before calling the LLM
+    # TODO: Replace keyword heuristics with model-based classifier + eval harness
     safety = safety_service.assess_user_message(message_data.content)
     
     if not safety.allowed:
