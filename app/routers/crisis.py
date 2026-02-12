@@ -57,9 +57,12 @@ async def get_emergency_resources(
     """
     resources = _get_resources_for_country(country)
 
+    # If country is not recognized, we treat it as International in response
+    response_country = country.upper() if (country and country.upper() in {"US", "CA", "IN"}) else "International"
+
     return EmergencyResourcesResponse(
         resources=resources,
-        country=country or "International",
+        country=response_country,
     )
 
 
