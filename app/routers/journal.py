@@ -18,6 +18,7 @@ from app.schemas.journal import (
 from app.schemas.hearts import HeartsTransactionCreate
 from app.services.hearts import award_hearts
 from app.services.safety import safety_service
+from app.services.notifications import notification_service
 import json
 
 logger = logging.getLogger(__name__)
@@ -103,6 +104,7 @@ async def create_journal_entry(
         # Log crisis event
         try:
             from app.models.user import CrisisEvent
+
             event = CrisisEvent(
                 user_id=current_user.id,
                 source="journal",
@@ -113,10 +115,13 @@ async def create_journal_entry(
             )
             db.add(event)
             db.commit()
+
+            # Notify therapist about journal crisis event
+            notification_service.notify_therapist_crisis(event)
         except Exception as e:
             logger.error(f"Failed to create CrisisEvent: {e}")
             db.rollback()
-        
+
         raise HTTPException(
             status_code=status.HTTP_400_BAD_REQUEST,
             detail="Journal entry appears to contain high-risk content. Please reach out for support.",

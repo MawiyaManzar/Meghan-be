@@ -20,6 +20,7 @@ from app.schemas.chat import (
 )
 from app.services.chat import chat_service
 from app.services.safety import safety_service
+from app.services.notifications import notification_service
 import json
 from app.models.user import CrisisEvent
 
@@ -322,7 +323,7 @@ async def send_message(
     # TODO: Replace keyword heuristics with model-based classifier + eval harness
     safety = safety_service.assess_user_message(message_data.content)
     
-    if not safety.allowed:
+    if not safety.allowed:  
         # Save a safe model message without calling the LLM
         safe_model_message = ChatMessage(
             conversation_id=conversation_id,
@@ -345,6 +346,9 @@ async def send_message(
             )
             db.add(event)
             db.commit()
+
+            # Notify therapist (stubbed notification service)
+            notification_service.notify_therapist_crisis(event)
         except Exception as e:
             logger.error(f"Failed to create CrisisEvent: {e}")
 

@@ -15,6 +15,7 @@ import logging
 from app.routers import expressions  
 from app.routers import journal
 from app.routers import insights
+from app.routers import crisis
 # Configure logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -92,3 +93,4 @@ app.include_router(communities.router)
 app.include_router(expressions.router)  
 app.include_router(journal.router)
 app.include_router(insights.router)
+app.include_router(crisis.router)

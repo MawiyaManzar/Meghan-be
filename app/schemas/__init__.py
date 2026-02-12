@@ -97,7 +97,6 @@ from .insights import (
     ProgressIndicator,
     Recommendation,
 )
-
 __all__ = [
     # Auth
     "UserCreate",

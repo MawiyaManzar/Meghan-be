@@ -14,6 +14,7 @@ from app.schemas.expressions import (
 from app.schemas.hearts import HeartsTransactionCreate
 from app.services.hearts import award_hearts
 from app.services.safety import safety_service
+from app.services.notifications import notification_service
 
 import json
 from typing import List
@@ -163,15 +164,18 @@ async def add_empathy_response(
     if not safety.allowed:
         try:
             event = CrisisEvent(
-                user_id= current_user.id,
-                source = "community",
-                community_id= expression.community_id,
-                message_excerpt= payload.content[:300],
-                risk_level= safety.risk_level,
-                matched_phrases= json.dumps(safety.matched_phrases)
+                user_id=current_user.id,
+                source="community",
+                community_id=expression.community_id,
+                message_excerpt=payload.content[:300],
+                risk_level=safety.risk_level,
+                matched_phrases=json.dumps(safety.matched_phrases),
             )
             db.add(event)
             db.commit()
+
+            # Notify therapist about community crisis event
+            notification_service.notify_therapist_crisis(event)
         except Exception:
             db.rollback()
         
