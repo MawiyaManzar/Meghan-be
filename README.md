@@ -138,6 +138,24 @@ Base URL (local): `http://localhost:8000`
 ### Therapist (`/api/therapist`) (requires therapist access)
 - **GET** `/api/therapist/crisis-events` - List crisis events (optional query: `community_id`, `limit`)
 
+### Micro Expressions (`/api/expressions`) (requires auth)
+- **POST** `/api/expressions` - Create micro expression (tweet-like post, 280-char limit, optional `community_id`, `is_anonymous`)
+- **GET** `/api/expressions` - List expressions with pagination and optional `community_id` filter
+- **POST** `/api/expressions/{expression_id}/empathy` - Add empathy response to an expression (280-char limit)
+
+### Journal (`/api/journal`) (requires auth)
+- **GET** `/api/journal/prompts` - Get guided journaling prompts
+- **POST** `/api/journal/entries` - Create journal entry (optional `mood_at_time`, `tier_at_time`)
+- **GET** `/api/journal/entries` - List current user's journal entries with pagination
+- **POST** `/api/journal/entries/{entry_id}/voice` - Upload voice note for a journal entry (stub; validates audio file)
+
+### Insights (`/api/insights`) (requires auth)
+- **GET** `/api/insights/weekly` - Get weekly wellbeing insights (mood trends, triggers, progress, recommendations, encouragement)
+
+### Crisis (`/api/crisis`) (requires auth)
+- **POST** `/api/crisis/detect` - Assess free text for crisis risk (low/medium/high) using safety gate + optional LLM
+- **GET** `/api/crisis/resources` - Get emergency resources and crisis hotlines (supports `country` query param)
+
 ## Development
 
 ### Environment Variables
