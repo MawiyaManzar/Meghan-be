@@ -16,6 +16,7 @@ from app.routers import expressions
 from app.routers import journal
 from app.routers import insights
 from app.routers import crisis
+from app.routers import community_ws
 # Configure logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -94,3 +95,4 @@ app.include_router(expressions.router)
 app.include_router(journal.router)
 app.include_router(insights.router)
 app.include_router(crisis.router)
+app.include_router(community_ws.router)

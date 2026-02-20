@@ -16,6 +16,7 @@ from app.models.user import (
     CrisisEvent,
     MicroExpression,
     EmpathyResponse,
+    CommunityMessage,
 )
 
 __all__ = [
@@ -32,5 +33,6 @@ __all__ = [
     "CrisisEvent",
     "MicroExpression",
     "EmpathyResponse",
+    "CommunityMessage",
 ]
 

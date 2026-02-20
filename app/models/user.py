@@ -245,3 +245,16 @@ class EmpathyResponse(Base): # this is the response to a micro expression
     created_at = Column(DateTime, default=func.now(), index=True)
 
 
+class CommunityMessage(Base):
+    """
+    Real-time community chat message (Discord-style).
+    """
+
+    __tablename__ = "community_messages"
+
+    id = Column(Integer, primary_key=True, index=True)
+    community_id = Column(Integer, ForeignKey("problem_communities.id", ondelete="cascade"), index=True)
+    user_id = Column(Integer, ForeignKey("users.id", ondelete="cascade"), index=True)
+    content = Column(Text, nullable=False)
+    is_anonymous = Column(Boolean, default=True, nullable=False)
+    created_at = Column(DateTime, default=func.now(), index=True)

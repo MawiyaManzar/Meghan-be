@@ -97,6 +97,15 @@ from .insights import (
     ProgressIndicator,
     Recommendation,
 )
+from .community import (
+    CommunityResponse,
+    CommunityListResponse,
+    CommunityJoinRequest,
+    CommunityMessageBase,
+    CommunityMessageCreate,
+    CommunityMessageResponse,
+    CommunityMessageListResponse,
+)
 __all__ = [
     # Auth
     "UserCreate",
@@ -163,4 +172,12 @@ __all__ = [
     "TriggerPattern",
     "ProgressIndicator",
     "Recommendation",
+    # Communities
+    "CommunityResponse",
+    "CommunityListResponse",
+    "CommunityJoinRequest",
+    "CommunityMessageBase",
+    "CommunityMessageCreate",
+    "CommunityMessageResponse",
+    "CommunityMessageListResponse",
 ]
