@@ -169,12 +169,22 @@ async def create_conversation(
             detail=f"Invalid mood: {mood}. Must be one of {valid_moods}"
         )
     
+    # Validate mode
+    valid_modes = {"talk", "plan"}
+    mode = conversation_data.mode or "talk"
+    if mode not in valid_modes:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail=f"Invalid mode: {mode}. Must be one of {valid_modes}"
+        )
+    
     # Create conversation
     conversation = Conversation(
         user_id=current_user.id,
         tier=tier,
         mood=mood,
-        source=source
+        source=source,
+        mode=mode
     )
     
     db.add(conversation)

@@ -140,6 +140,7 @@ class Conversation(Base):
     tier = Column(String)
     mood = Column(String)
     source = Column(String)
+    mode = Column(String, default="talk")  # 'talk' or 'plan'
     created_at = Column(DateTime, default=func.now())
     updated_at = Column(DateTime, default=func.now(), onupdate=func.now())
 

@@ -12,11 +12,13 @@ class ConversationBase(BaseModel):
     tier: str = Field(description="Risk tier at conversation start: 'Green', 'Yellow', 'Red'")
     mood: str = Field(description="Mood at conversation start: 'Heavy', 'Pulse', 'Grounded'")
     source: str = Field(description="Stress source at conversation start: 'Family', 'Relationship', 'Career/Academics', 'Others'")
+    mode: str = Field(default="talk", description="Chat mode: 'talk' or 'plan'")
 
 class ConversationCreate(BaseModel):
     tier: Optional[str] = Field(None, description="Risk tier at conversation start: 'Green', 'Yellow', 'Red'. If not provided, uses current user state.")
     mood: Optional[str] = Field(None, description="Mood at conversation start: 'Heavy', 'Pulse', 'Grounded'. If not provided, uses current user state.")
     source: Optional[str] = Field(None, description="Stress source at conversation start. If not provided, uses current user state.")
+    mode: Optional[str] = Field("talk", description="Chat mode: 'talk' or 'plan'. Defaults to 'talk'.")
 
 class ConversationResponse(ConversationBase):
     model_config = ConfigDict(from_attributes=True)
