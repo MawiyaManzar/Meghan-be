@@ -392,7 +392,8 @@ async def send_message(
             mood=conversation.mood,
             source=conversation.source,
             bio=user_profile,
-            other_text=user_state.other_text if conversation.source == "Others" else None
+            other_text=user_state.other_text if conversation.source == "Others" else None,
+            mode=conversation.mode or "talk"
         )
         
         if not llm_response.get("success"):

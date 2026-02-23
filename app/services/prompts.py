@@ -11,7 +11,8 @@ def generate_system_instructions(
     mood: str,
     source: str,
     bio: Optional[Dict[str, Any]] = None,
-    other_text: Optional[str] = None
+    other_text: Optional[str] = None,
+    mode: str = "talk"
 ) -> str:
     """
     Generate system instructions for the chatbot based on user context.
@@ -22,6 +23,7 @@ def generate_system_instructions(
         source: Stress source ('Family', 'Relationship', 'Career/Academics', 'Others')
         bio: Optional dict with user bio info (name, major, hobbies, values, bio)
         other_text: Optional text when source is 'Others'
+        mode: Chat mode ('talk' or 'plan')
     
     Returns:
         Formatted system instructions string
@@ -77,6 +79,34 @@ def generate_system_instructions(
     }
     tier_guidance_text = tier_guidance.get(tier, tier_guidance["Yellow"])
     
+    # Mode-specific guidance
+    mode_guidance = {
+        "talk": (
+            "CONVERSATION MODE: Talk (Listening & Support)\n"
+            "Your role is to be a compassionate listener. Focus on:\n"
+            "- Deep empathy and emotional validation\n"
+            "- Asking clarifying questions to understand their feelings better\n"
+            "- Reflecting back what you hear to show understanding\n"
+            "- Providing comfort without rushing to solutions\n"
+            "- Low action pressure - let them process at their own pace\n"
+            "- Using phrases like 'That sounds really hard' or 'I hear you'\n"
+            "Do NOT push them to make plans or take actions unless they explicitly ask for help with that."
+        ),
+        "plan": (
+            "CONVERSATION MODE: Plan (Action & Goals)\n"
+            "Your role is to help them take constructive action. Focus on:\n"
+            "- Breaking overwhelming tasks into tiny, manageable steps\n"
+            "- Creating micro-goals they can accomplish in 5-15 minutes\n"
+            "- Gently encouraging commitment ('Would you like to try this today?')\n"
+            "- Celebrating small wins and progress\n"
+            "- Using the Pomodoro technique or similar productivity methods\n"
+            "- Helping them prioritize what matters most right now\n"
+            "- Accountability with kindness - check in on their progress\n"
+            "Be warm but action-oriented. Help them move forward one small step at a time."
+        )
+    }
+    mode_guidance_text = mode_guidance.get(mode, mode_guidance["talk"])
+    
     # Construct system instructions
     system_instructions = f"""You are Meghan, an empathetic and supportive wellness assistant designed to help university students navigate stress and mental health challenges.
 
@@ -90,7 +120,9 @@ CURRENT STATE:
 - {stress_context}
 - Risk level: {tier}
 
-RESPONSE GUIDELINES:
+{mode_guidance_text}
+
+TIER-SPECIFIC GUIDANCE:
 {tier_guidance_text}
 
 IMPORTANT GUIDELINES:

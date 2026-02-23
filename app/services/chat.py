@@ -29,6 +29,7 @@ class ChatService:
         source: str,
         bio: Optional[Dict[str, Any]] = None,
         other_text: Optional[str] = None,
+        mode: str = "talk",
         model: Optional[str] = None,
         temperature: Optional[float] = None,
         top_p: Optional[float] = None,
@@ -45,6 +46,7 @@ class ChatService:
             source: Stress source ('Family', 'Relationship', 'Career/Academics', 'Others')
             bio: Optional dict with user bio info (name, major, hobbies, values, bio)
             other_text: Optional text when source is 'Others'
+            mode: Chat mode ('talk' or 'plan')
             model: Optional model name override
             temperature: Optional temperature override
             top_p: Optional top_p override
@@ -63,10 +65,11 @@ class ChatService:
                 mood=mood,
                 source=source,
                 bio=bio,
-                other_text=other_text
+                other_text=other_text,
+                mode=mode
             )
             
-            logger.debug(f"Generated system instructions for tier={tier}, mood={mood}, source={source}")
+            logger.debug(f"Generated system instructions for tier={tier}, mood={mood}, source={source}, mode={mode}")
             
             # Get LLM instance
             llm = llm_service.get_llm(

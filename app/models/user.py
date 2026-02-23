@@ -252,7 +252,6 @@ class CommunityMessage(Base):
     """
 
     __tablename__ = "community_messages"
-
     id = Column(Integer, primary_key=True, index=True)
     community_id = Column(Integer, ForeignKey("problem_communities.id", ondelete="cascade"), index=True)
     user_id = Column(Integer, ForeignKey("users.id", ondelete="cascade"), index=True)
