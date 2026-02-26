@@ -22,6 +22,11 @@ class Settings(BaseSettings):
     
     # API Settings
     API_V1_PREFIX: str = "/api/v1"
+
+     # === AssemblyAI STT ===
+    ASSEMBLYAI_API_KEY: str | None = None
+    ASSEMBLYAI_UPLOAD_URL: str = "https://api.assemblyai.com/v2/upload"
+    ASSEMBLYAI_TRANSCRIPT_URL: str = "https://api.assemblyai.com/v2/transcript"
     
     # Security
     SECRET_KEY: str = "dev-secret-key-change-in-production"  # Change in production
