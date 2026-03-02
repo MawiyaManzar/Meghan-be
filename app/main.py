@@ -1,9 +1,13 @@
 """
 Main FastAPI application entry point.
 """
+import logging
+
+from contextlib import asynccontextmanager
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from contextlib import asynccontextmanager
+
 from app.core.config import settings
 from app.core.database import init_mongodb, init_redis, close_mongodb, close_redis
 from app.routers import auth, llm, chat, users
@@ -11,12 +15,13 @@ from app.routers import hearts
 from app.routers import onboarding, checkins
 from app.routers import therapist
 from app.routers import communities  
-import logging
 from app.routers import expressions  
 from app.routers import journal
 from app.routers import insights
 from app.routers import crisis
 from app.routers import community_ws
+from app.routers import voice
+
 # Configure logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -96,3 +101,4 @@ app.include_router(journal.router)
 app.include_router(insights.router)
 app.include_router(crisis.router)
 app.include_router(community_ws.router)
+app.include_router(voice.router)
