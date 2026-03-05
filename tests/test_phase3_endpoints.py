@@ -496,6 +496,90 @@ class TestChatEndpoints:
         assert messages_data["messages"][0]["role"] == "user"
         assert messages_data["messages"][0]["content"] == "Test message"
 
+    def test_send_message_uses_mocked_provider_and_returns_reply(self, client, auth_headers, monkeypatch):
+        """Integration: endpoint should call provider seam and return persisted model reply."""
+        from app.services.chat import chat_service
+        from app.services.bedrock_contract import ChatResult
+
+        class FakeProvider:
+            def __init__(self):
+                self.calls = []
+
+            def generate_chat_response(self, prompt):
+                self.calls.append(prompt)
+                return ChatResult(success=True, content="Mocked Bedrock reply")
+
+        fake_provider = FakeProvider()
+        monkeypatch.setattr(chat_service, "provider", fake_provider)
+
+        conv_response = client.post("/api/chat/conversations", headers=auth_headers, json={})
+        conv_id = conv_response.json()["id"]
+
+        response = client.post(
+            f"/api/chat/conversations/{conv_id}/messages",
+            headers=auth_headers,
+            json={"role": "user", "content": "Please help me focus"},
+        )
+
+        assert response.status_code == status.HTTP_200_OK
+        data = response.json()
+        assert data["role"] == "model"
+        assert data["content"] == "Mocked Bedrock reply"
+        assert len(fake_provider.calls) == 1
+        assert fake_provider.calls[0].user_message == "Please help me focus"
+
+        messages_response = client.get(
+            f"/api/chat/conversations/{conv_id}/messages",
+            headers=auth_headers,
+        )
+        assert messages_response.status_code == status.HTTP_200_OK
+        messages = messages_response.json()["messages"]
+        assert len(messages) >= 2
+        assert messages[0]["role"] == "user"
+        assert messages[0]["content"] == "Please help me focus"
+        assert messages[-1]["role"] == "model"
+        assert messages[-1]["content"] == "Mocked Bedrock reply"
+
+    def test_send_message_provider_receives_history_context(self, client, auth_headers, monkeypatch):
+        """Integration: provider prompt should include previous messages for context continuity."""
+        from app.services.chat import chat_service
+        from app.services.bedrock_contract import ChatResult
+
+        class FakeProvider:
+            def __init__(self):
+                self.calls = []
+
+            def generate_chat_response(self, prompt):
+                self.calls.append(prompt)
+                return ChatResult(success=True, content=f"Reply #{len(self.calls)}")
+
+        fake_provider = FakeProvider()
+        monkeypatch.setattr(chat_service, "provider", fake_provider)
+
+        conv_response = client.post("/api/chat/conversations", headers=auth_headers, json={})
+        conv_id = conv_response.json()["id"]
+
+        first = client.post(
+            f"/api/chat/conversations/{conv_id}/messages",
+            headers=auth_headers,
+            json={"role": "user", "content": "First message"},
+        )
+        assert first.status_code == status.HTTP_200_OK
+
+        second = client.post(
+            f"/api/chat/conversations/{conv_id}/messages",
+            headers=auth_headers,
+            json={"role": "user", "content": "Second message"},
+        )
+        assert second.status_code == status.HTTP_200_OK
+
+        assert len(fake_provider.calls) == 2
+        second_prompt = fake_provider.calls[1].user_message
+        assert "Previous conversation context" in second_prompt
+        assert "user: First message" in second_prompt
+        assert "model: Reply #1" in second_prompt
+        assert "Current user message:\nSecond message" in second_prompt
+
 
 class TestAuthentication:
     """Test authentication requirements for endpoints."""

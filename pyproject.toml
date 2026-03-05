@@ -43,4 +43,7 @@ dependencies = [
     "vosk>=0.3.45",
     "assemblyai>=0.52.3",
     "pyaudio>=0.2.14",
+    "awscli>=1.44.49",
+    "awsebcli>=3.26",
+    "boto3>=1.42.59",
 ]

@@ -59,6 +59,16 @@ class Settings(BaseSettings):
     GEMINI_MAX_OUTPUT_TOKENS: int = 500
     GEMINI_THINKING_BUDGET: int = 200  # Note: May need special handling depending on model support
     
+    # === AWS Bedrock (uses IAM credentials, not API keys) ===
+    # AWS credentials are loaded automatically by boto3 from:
+    # 1. Environment variables: AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY
+    # 2. AWS credentials file: ~/.aws/credentials (via AWS CLI)
+    # 3. IAM role (if running on EC2/Lambda/EB)
+    # Optional: explicitly set if not using default profile/region
+    AWS_REGION: str = "us-east-1"  # Bedrock region
+    AWS_PROFILE: Optional[str] = None  # Optional: AWS CLI profile name (defaults to "default")
+    BEDROCK_MODEL_ID: str = "amazon.nova-micro-v1:0"  # Default model (lowest cost)
+    
     @field_validator("CORS_ORIGINS", mode="before")
     @classmethod
     def parse_cors_origins(cls, v):
@@ -79,7 +89,10 @@ class Settings(BaseSettings):
     
     model_config = SettingsConfigDict(
         env_file=str(BASE_DIR / ".env"),  # Use absolute path for .env file too
-        case_sensitive=True
+        case_sensitive=True,
+        # Ignore unknown env vars so legacy/unused keys in local .env do not
+        # crash application startup (helpful for tests and incremental migration).
+        extra="ignore",
     )
     
     @field_validator("DATABASE_URL", mode="before")

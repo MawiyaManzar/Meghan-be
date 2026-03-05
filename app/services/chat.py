@@ -3,22 +3,28 @@ Chat Service for handling conversations with the LLM.
 Manages chat history, context, and LLM interactions.
 """
 import logging
-from typing import List, Dict, Any, Optional
-from app.services.llm import llm_service
+from typing import List, Dict, Any, Optional, Protocol
+from app.services.bedrock_contract import ChatPrompt, ChatMode
+from app.services.aws_bedrock import BedrockChatService
 from app.services.prompts import (
-    generate_system_instructions,
-    format_chat_history
+    generate_system_instructions
 )
 
 logger = logging.getLogger(__name__)
 
 
+class ChatProvider(Protocol):
+    """Minimal provider contract so ChatService can swap AI backends."""
+
+    def generate_chat_response(self, prompt: ChatPrompt): ...
+
+
 class ChatService:
     """Service for managing chat conversations with the LLM."""
     
-    def __init__(self):
-        """Initialize the chat service."""
-        pass
+    def __init__(self, provider: Optional[ChatProvider] = None):
+        """Initialize chat service with an injectable AI provider."""
+        self.provider = provider or BedrockChatService()
     
     async def generate_response(
         self,
@@ -29,7 +35,7 @@ class ChatService:
         source: str,
         bio: Optional[Dict[str, Any]] = None,
         other_text: Optional[str] = None,
-        mode: str = "talk",
+        mode: ChatMode | str = ChatMode.TALK,
         model: Optional[str] = None,
         temperature: Optional[float] = None,
         top_p: Optional[float] = None,
@@ -59,6 +65,14 @@ class ChatService:
             ValueError: If required parameters are missing
         """
         try:
+            mode_value = ChatMode(mode)
+            prompt_contract = ChatPrompt(
+                user_message=user_message,
+                mode=mode_value,
+                temperature=temperature,
+                max_tokens=max_output_tokens,
+            )
+
             # Generate system instructions
             system_instructions = generate_system_instructions(
                 tier=tier,
@@ -66,46 +80,41 @@ class ChatService:
                 source=source,
                 bio=bio,
                 other_text=other_text,
-                mode=mode
+                mode=prompt_contract.mode.value
             )
             
-            logger.debug(f"Generated system instructions for tier={tier}, mood={mood}, source={source}, mode={mode}")
-            
-            # Get LLM instance
-            llm = llm_service.get_llm(
-                model=model,
-                temperature=temperature,
-                top_p=top_p,
-                max_output_tokens=max_output_tokens
+            logger.debug(
+                "Generated system instructions for tier=%s, mood=%s, source=%s, mode=%s",
+                tier,
+                mood,
+                source,
+                mode_value.value,
             )
+
+            history_block = self._render_history(chat_history)
+            merged_user_message = (
+                f"{history_block}\n\nCurrent user message:\n{prompt_contract.user_message}"
+                if history_block
+                else prompt_contract.user_message
+            )
+
+            provider_prompt = ChatPrompt(
+                system_prompt=system_instructions,
+                user_message=merged_user_message,
+                mode=prompt_contract.mode,
+                temperature=prompt_contract.temperature,
+                max_tokens=prompt_contract.max_tokens,
+            )
+
+            provider_result = self.provider.generate_chat_response(provider_prompt)
+            content = provider_result.content or self._get_fallback_response(tier)
             
-            # Format chat history for LangChain
-            formatted_history = format_chat_history(chat_history)
-            
-            # Build message list: system message + history + current user message
-            from langchain_core.messages import SystemMessage, HumanMessage
-            
-            messages = [
-                SystemMessage(content=system_instructions),
-                *formatted_history,  # Previous conversation history
-                HumanMessage(content=user_message)  # Current user message
-            ]
-            
-            # Invoke LLM (non-streaming for now)
-            logger.info(f"Invoking LLM with {len(messages)} messages")
-            response = await llm.ainvoke(messages)
-            
-            # Extract content from response
-            if hasattr(response, 'content'):
-                content = response.content
-            else:
-                content = str(response)
-            
-            logger.info(f"LLM response generated successfully (length: {len(content)})")
+            logger.info("AI response generated (success=%s, length=%s)", provider_result.success, len(content))
             
             return {
-                "success": True,
-                "content": content
+                "success": provider_result.success,
+                "content": content,
+                "error": provider_result.error,
             }
             
         except ValueError as e:
@@ -124,6 +133,16 @@ class ChatService:
                 "error": f"Failed to generate response: {str(e)}",
                 "content": self._get_fallback_response(tier)
             }
+
+    def _render_history(self, chat_history: List[Dict[str, str]]) -> str:
+        if not chat_history:
+            return ""
+        history_lines = []
+        for message in chat_history:
+            role = message.get("role", "unknown")
+            content = message.get("content", "")
+            history_lines.append(f"{role}: {content}")
+        return "Previous conversation context:\n" + "\n".join(history_lines)
     
     def _get_fallback_response(self, tier: str) -> str:
         """
