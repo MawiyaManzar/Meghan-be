@@ -580,6 +580,58 @@ class TestChatEndpoints:
         assert "model: Reply #1" in second_prompt
         assert "Current user message:\nSecond message" in second_prompt
 
+    def test_send_message_provider_exception_returns_safe_reply(self, client, auth_headers, monkeypatch):
+        """Failure path: provider exception should not crash endpoint and should return safe fallback."""
+        from app.services.chat import chat_service
+
+        class FailingProvider:
+            def generate_chat_response(self, prompt):
+                raise TimeoutError("simulated provider timeout")
+
+        monkeypatch.setattr(chat_service, "provider", FailingProvider())
+
+        conv_response = client.post("/api/chat/conversations", headers=auth_headers, json={})
+        conv_id = conv_response.json()["id"]
+
+        response = client.post(
+            f"/api/chat/conversations/{conv_id}/messages",
+            headers=auth_headers,
+            json={"role": "user", "content": "Need help now"},
+        )
+
+        assert response.status_code == status.HTTP_200_OK
+        data = response.json()
+        assert data["role"] == "model"
+        assert len(data["content"]) > 0
+        assert "technical difficulties" in data["content"].lower()
+
+    def test_send_message_provider_invalid_result_uses_fallback(self, client, auth_headers, monkeypatch):
+        """Failure path: invalid provider result shape should degrade gracefully to safe fallback."""
+        from app.services.chat import chat_service
+
+        class InvalidProvider:
+            def generate_chat_response(self, prompt):
+                # Deliberately invalid shape for ChatService expectations.
+                return {"success": True, "content": "bad-shape"}
+
+        monkeypatch.setattr(chat_service, "provider", InvalidProvider())
+
+        conv_response = client.post("/api/chat/conversations", headers=auth_headers, json={})
+        conv_id = conv_response.json()["id"]
+
+        response = client.post(
+            f"/api/chat/conversations/{conv_id}/messages",
+            headers=auth_headers,
+            json={"role": "user", "content": "Need a response"},
+        )
+
+        assert response.status_code == status.HTTP_200_OK
+        data = response.json()
+        assert data["role"] == "model"
+        assert len(data["content"]) > 0
+        # Endpoint should still provide safe user-facing content.
+        assert "technical difficulties" in data["content"].lower()
+
 
 class TestAuthentication:
     """Test authentication requirements for endpoints."""

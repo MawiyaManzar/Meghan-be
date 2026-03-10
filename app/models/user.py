@@ -79,7 +79,7 @@ Model Overview:
    Relationship: Links User and PeerCluster
 """
 
-from sqlalchemy import Column, Integer, String, DateTime, func, ForeignKey, Text,Boolean
+from sqlalchemy import Column, Integer, String, DateTime, Date, func, ForeignKey, Text, Boolean
 from sqlalchemy.orm import declarative_base
 from sqlalchemy.sql.functions import now
 
@@ -151,6 +151,7 @@ class ChatMessage(Base):
     conversation_id = Column(Integer, ForeignKey("conversations.id", ondelete="cascade"))
     role = Column(String)
     content = Column(Text)
+    s3_key = Column(String, nullable=True)
     created_at = Column(DateTime, default=func.now(), index=True)
 
 class JournalEntry(Base):
@@ -162,6 +163,18 @@ class JournalEntry(Base):
     mood_at_time = Column(String, nullable=True)
     tier_at_time = Column(String, nullable=True)
     xp_gained = Column(Integer, default=30)
+    created_at = Column(DateTime, default=func.now(), index=True)
+
+
+class WeeklyWellbeingInsight(Base):
+    __tablename__ = "weekly_wellbeing_insights"
+
+    id = Column(Integer, primary_key=True, index=True)
+    user_id = Column(Integer, ForeignKey("users.id", ondelete="cascade"), nullable=False, index=True)
+    week_start = Column(Date, nullable=False, index=True)
+    week_end = Column(Date, nullable=False, index=True)
+    summary_text = Column(Text, nullable=False)
+    risk_tier = Column(String, nullable=True)
     created_at = Column(DateTime, default=func.now(), index=True)
 
 class PeerCluster(Base):

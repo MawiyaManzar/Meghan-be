@@ -24,6 +24,16 @@ class TestInfrastructure:
         
         assert response.status_code == 200
         assert response.json() == {"status": "healthy"}
+
+    def test_schema_check_endpoint(self, client):
+        """Test debug schema check endpoint reports aligned schema in test DB."""
+        response = client.get("/debug/schema-check")
+        assert response.status_code == 200
+        data = response.json()
+        assert "ok" in data
+        assert "missing_tables" in data
+        assert "missing_columns" in data
+        assert data["ok"] is True
     
     def test_root_endpoint(self):
         """Test the root endpoint."""

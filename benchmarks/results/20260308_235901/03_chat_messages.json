@@ -1,0 +1,459 @@
+{"type":"Metric","data":{"name":"http_reqs","type":"counter","contains":"default","thresholds":[],"submetrics":null},"metric":"http_reqs"}
+{"metric":"http_reqs","type":"Point","data":{"time":"2026-03-09T00:01:04.031259232+05:30","value":1,"tags":{"error_code":"1400","expected_response":"false","group":"::setup","method":"POST","name":"http://localhost:8000/api/auth/register","proto":"HTTP/1.1","status":"400","url":"http://localhost:8000/api/auth/register"}}}
+{"type":"Metric","data":{"name":"http_req_duration","type":"trend","contains":"time","thresholds":[],"submetrics":[{"name":"http_req_duration{name:chat_message}","suffix":"name:chat_message","tags":{"name":"chat_message"}},{"name":"http_req_duration{expected_response:true}","suffix":"expected_response:true","tags":{"expected_response":"true"}}]},"metric":"http_req_duration"}
+{"metric":"http_req_duration","type":"Point","data":{"time":"2026-03-09T00:01:04.031259232+05:30","value":2.762734,"tags":{"error_code":"1400","expected_response":"false","group":"::setup","method":"POST","name":"http://localhost:8000/api/auth/register","proto":"HTTP/1.1","status":"400","url":"http://localhost:8000/api/auth/register"}}}
+{"type":"Metric","data":{"name":"http_req_blocked","type":"trend","contains":"time","thresholds":[],"submetrics":null},"metric":"http_req_blocked"}
+{"metric":"http_req_blocked","type":"Point","data":{"time":"2026-03-09T00:01:04.031259232+05:30","value":0.333314,"tags":{"error_code":"1400","expected_response":"false","group":"::setup","method":"POST","name":"http://localhost:8000/api/auth/register","proto":"HTTP/1.1","status":"400","url":"http://localhost:8000/api/auth/register"}}}
+{"type":"Metric","data":{"name":"http_req_connecting","type":"trend","contains":"time","thresholds":[],"submetrics":null},"metric":"http_req_connecting"}
+{"metric":"http_req_connecting","type":"Point","data":{"time":"2026-03-09T00:01:04.031259232+05:30","value":0.201874,"tags":{"error_code":"1400","expected_response":"false","group":"::setup","method":"POST","name":"http://localhost:8000/api/auth/register","proto":"HTTP/1.1","status":"400","url":"http://localhost:8000/api/auth/register"}}}
+{"type":"Metric","data":{"name":"http_req_tls_handshaking","type":"trend","contains":"time","thresholds":[],"submetrics":null},"metric":"http_req_tls_handshaking"}
+{"metric":"http_req_tls_handshaking","type":"Point","data":{"time":"2026-03-09T00:01:04.031259232+05:30","value":0,"tags":{"error_code":"1400","expected_response":"false","group":"::setup","method":"POST","name":"http://localhost:8000/api/auth/register","proto":"HTTP/1.1","status":"400","url":"http://localhost:8000/api/auth/register"}}}
+{"type":"Metric","data":{"name":"http_req_sending","type":"trend","contains":"time","thresholds":[],"submetrics":null},"metric":"http_req_sending"}
+{"metric":"http_req_sending","type":"Point","data":{"time":"2026-03-09T00:01:04.031259232+05:30","value":0.11583,"tags":{"error_code":"1400","expected_response":"false","group":"::setup","method":"POST","name":"http://localhost:8000/api/auth/register","proto":"HTTP/1.1","status":"400","url":"http://localhost:8000/api/auth/register"}}}
+{"type":"Metric","data":{"name":"http_req_waiting","type":"trend","contains":"time","thresholds":[],"submetrics":null},"metric":"http_req_waiting"}
+{"metric":"http_req_waiting","type":"Point","data":{"time":"2026-03-09T00:01:04.031259232+05:30","value":2.535101,"tags":{"error_code":"1400","expected_response":"false","group":"::setup","method":"POST","name":"http://localhost:8000/api/auth/register","proto":"HTTP/1.1","status":"400","url":"http://localhost:8000/api/auth/register"}}}
+{"type":"Metric","data":{"name":"http_req_receiving","type":"trend","contains":"time","thresholds":[],"submetrics":null},"metric":"http_req_receiving"}
+{"metric":"http_req_receiving","type":"Point","data":{"time":"2026-03-09T00:01:04.031259232+05:30","value":0.111803,"tags":{"error_code":"1400","expected_response":"false","group":"::setup","method":"POST","name":"http://localhost:8000/api/auth/register","proto":"HTTP/1.1","status":"400","url":"http://localhost:8000/api/auth/register"}}}
+{"type":"Metric","data":{"name":"http_req_failed","type":"rate","contains":"default","thresholds":[],"submetrics":[{"name":"http_req_failed{name:chat_message}","suffix":"name:chat_message","tags":{"name":"chat_message"}}]},"metric":"http_req_failed"}
+{"metric":"http_req_failed","type":"Point","data":{"time":"2026-03-09T00:01:04.031259232+05:30","value":1,"tags":{"error_code":"1400","expected_response":"false","group":"::setup","method":"POST","name":"http://localhost:8000/api/auth/register","proto":"HTTP/1.1","status":"400","url":"http://localhost:8000/api/auth/register"}}}
+{"metric":"http_reqs","type":"Point","data":{"time":"2026-03-09T00:01:04.442986032+05:30","value":1,"tags":{"expected_response":"true","group":"::setup","method":"POST","name":"http://localhost:8000/api/auth/login-json","proto":"HTTP/1.1","status":"200","url":"http://localhost:8000/api/auth/login-json"}}}
+{"metric":"http_req_duration","type":"Point","data":{"time":"2026-03-09T00:01:04.442986032+05:30","value":411.340125,"tags":{"expected_response":"true","group":"::setup","method":"POST","name":"http://localhost:8000/api/auth/login-json","proto":"HTTP/1.1","status":"200","url":"http://localhost:8000/api/auth/login-json"}}}
+{"metric":"http_req_blocked","type":"Point","data":{"time":"2026-03-09T00:01:04.442986032+05:30","value":0.005981,"tags":{"expected_response":"true","group":"::setup","method":"POST","name":"http://localhost:8000/api/auth/login-json","proto":"HTTP/1.1","status":"200","url":"http://localhost:8000/api/auth/login-json"}}}
+{"metric":"http_req_connecting","type":"Point","data":{"time":"2026-03-09T00:01:04.442986032+05:30","value":0,"tags":{"expected_response":"true","group":"::setup","method":"POST","name":"http://localhost:8000/api/auth/login-json","proto":"HTTP/1.1","status":"200","url":"http://localhost:8000/api/auth/login-json"}}}
+{"metric":"http_req_tls_handshaking","type":"Point","data":{"time":"2026-03-09T00:01:04.442986032+05:30","value":0,"tags":{"expected_response":"true","group":"::setup","method":"POST","name":"http://localhost:8000/api/auth/login-json","proto":"HTTP/1.1","status":"200","url":"http://localhost:8000/api/auth/login-json"}}}
+{"metric":"http_req_sending","type":"Point","data":{"time":"2026-03-09T00:01:04.442986032+05:30","value":0.030879,"tags":{"expected_response":"true","group":"::setup","method":"POST","name":"http://localhost:8000/api/auth/login-json","proto":"HTTP/1.1","status":"200","url":"http://localhost:8000/api/auth/login-json"}}}
+{"metric":"http_req_waiting","type":"Point","data":{"time":"2026-03-09T00:01:04.442986032+05:30","value":411.217662,"tags":{"expected_response":"true","group":"::setup","method":"POST","name":"http://localhost:8000/api/auth/login-json","proto":"HTTP/1.1","status":"200","url":"http://localhost:8000/api/auth/login-json"}}}
+{"metric":"http_req_receiving","type":"Point","data":{"time":"2026-03-09T00:01:04.442986032+05:30","value":0.091584,"tags":{"expected_response":"true","group":"::setup","method":"POST","name":"http://localhost:8000/api/auth/login-json","proto":"HTTP/1.1","status":"200","url":"http://localhost:8000/api/auth/login-json"}}}
+{"metric":"http_req_failed","type":"Point","data":{"time":"2026-03-09T00:01:04.442986032+05:30","value":0,"tags":{"expected_response":"true","group":"::setup","method":"POST","name":"http://localhost:8000/api/auth/login-json","proto":"HTTP/1.1","status":"200","url":"http://localhost:8000/api/auth/login-json"}}}
+{"type":"Metric","data":{"name":"checks","type":"rate","contains":"default","thresholds":[],"submetrics":null},"metric":"checks"}
+{"metric":"checks","type":"Point","data":{"time":"2026-03-09T00:01:04.443102764+05:30","value":1,"tags":{"check":"setup: login 200","group":"::setup"}}}
+{"metric":"checks","type":"Point","data":{"time":"2026-03-09T00:01:04.443102764+05:30","value":1,"tags":{"check":"setup: token present","group":"::setup"}}}
+{"metric":"http_reqs","type":"Point","data":{"time":"2026-03-09T00:01:04.458364819+05:30","value":1,"tags":{"expected_response":"true","group":"::setup","method":"POST","name":"http://localhost:8000/api/chat/conversations","proto":"HTTP/1.1","status":"201","url":"http://localhost:8000/api/chat/conversations"}}}
+{"metric":"http_req_duration","type":"Point","data":{"time":"2026-03-09T00:01:04.458364819+05:30","value":15.016037,"tags":{"expected_response":"true","group":"::setup","method":"POST","name":"http://localhost:8000/api/chat/conversations","proto":"HTTP/1.1","status":"201","url":"http://localhost:8000/api/chat/conversations"}}}
+{"metric":"http_req_blocked","type":"Point","data":{"time":"2026-03-09T00:01:04.458364819+05:30","value":0.006001,"tags":{"expected_response":"true","group":"::setup","method":"POST","name":"http://localhost:8000/api/chat/conversations","proto":"HTTP/1.1","status":"201","url":"http://localhost:8000/api/chat/conversations"}}}
+{"metric":"http_req_connecting","type":"Point","data":{"time":"2026-03-09T00:01:04.458364819+05:30","value":0,"tags":{"expected_response":"true","group":"::setup","method":"POST","name":"http://localhost:8000/api/chat/conversations","proto":"HTTP/1.1","status":"201","url":"http://localhost:8000/api/chat/conversations"}}}
+{"metric":"http_req_tls_handshaking","type":"Point","data":{"time":"2026-03-09T00:01:04.458364819+05:30","value":0,"tags":{"expected_response":"true","group":"::setup","method":"POST","name":"http://localhost:8000/api/chat/conversations","proto":"HTTP/1.1","status":"201","url":"http://localhost:8000/api/chat/conversations"}}}
+{"metric":"http_req_sending","type":"Point","data":{"time":"2026-03-09T00:01:04.458364819+05:30","value":0.059894,"tags":{"expected_response":"true","group":"::setup","method":"POST","name":"http://localhost:8000/api/chat/conversations","proto":"HTTP/1.1","status":"201","url":"http://localhost:8000/api/chat/conversations"}}}
+{"metric":"http_req_waiting","type":"Point","data":{"time":"2026-03-09T00:01:04.458364819+05:30","value":14.870661,"tags":{"expected_response":"true","group":"::setup","method":"POST","name":"http://localhost:8000/api/chat/conversations","proto":"HTTP/1.1","status":"201","url":"http://localhost:8000/api/chat/conversations"}}}
+{"metric":"http_req_receiving","type":"Point","data":{"time":"2026-03-09T00:01:04.458364819+05:30","value":0.085482,"tags":{"expected_response":"true","group":"::setup","method":"POST","name":"http://localhost:8000/api/chat/conversations","proto":"HTTP/1.1","status":"201","url":"http://localhost:8000/api/chat/conversations"}}}
+{"metric":"http_req_failed","type":"Point","data":{"time":"2026-03-09T00:01:04.458364819+05:30","value":0,"tags":{"expected_response":"true","group":"::setup","method":"POST","name":"http://localhost:8000/api/chat/conversations","proto":"HTTP/1.1","status":"201","url":"http://localhost:8000/api/chat/conversations"}}}
+{"metric":"checks","type":"Point","data":{"time":"2026-03-09T00:01:04.458533781+05:30","value":1,"tags":{"check":"setup: conversation 201","group":"::setup"}}}
+{"metric":"checks","type":"Point","data":{"time":"2026-03-09T00:01:04.458533781+05:30","value":1,"tags":{"check":"setup: conversation id present","group":"::setup"}}}
+{"type":"Metric","data":{"name":"data_sent","type":"counter","contains":"data","thresholds":[],"submetrics":null},"metric":"data_sent"}
+{"metric":"data_sent","type":"Point","data":{"time":"2026-03-09T00:01:04.458851204+05:30","value":806,"tags":{"group":"::setup"}}}
+{"type":"Metric","data":{"name":"data_received","type":"counter","contains":"data","thresholds":[],"submetrics":null},"metric":"data_received"}
+{"metric":"data_received","type":"Point","data":{"time":"2026-03-09T00:01:04.458851204+05:30","value":780,"tags":{"group":"::setup"}}}
+{"type":"Metric","data":{"name":"vus","type":"gauge","contains":"default","thresholds":[],"submetrics":null},"metric":"vus"}
+{"metric":"vus","type":"Point","data":{"time":"2026-03-09T00:01:05.02613531+05:30","value":1,"tags":{}}}
+{"type":"Metric","data":{"name":"vus_max","type":"gauge","contains":"default","thresholds":[],"submetrics":null},"metric":"vus_max"}
+{"metric":"vus_max","type":"Point","data":{"time":"2026-03-09T00:01:05.02613531+05:30","value":1,"tags":{}}}
+{"metric":"http_reqs","type":"Point","data":{"time":"2026-03-09T00:01:05.698845791+05:30","value":1,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_duration","type":"Point","data":{"time":"2026-03-09T00:01:05.698845791+05:30","value":1239.39168,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_blocked","type":"Point","data":{"time":"2026-03-09T00:01:05.698845791+05:30","value":0.228063,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_connecting","type":"Point","data":{"time":"2026-03-09T00:01:05.698845791+05:30","value":0.160335,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_tls_handshaking","type":"Point","data":{"time":"2026-03-09T00:01:05.698845791+05:30","value":0,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_sending","type":"Point","data":{"time":"2026-03-09T00:01:05.698845791+05:30","value":0.051598,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_waiting","type":"Point","data":{"time":"2026-03-09T00:01:05.698845791+05:30","value":1239.21788,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_receiving","type":"Point","data":{"time":"2026-03-09T00:01:05.698845791+05:30","value":0.122202,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_failed","type":"Point","data":{"time":"2026-03-09T00:01:05.698845791+05:30","value":0,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"checks","type":"Point","data":{"time":"2026-03-09T00:01:05.69901884+05:30","value":1,"tags":{"check":"POST .../messages → 200 or 201","group":"","scenario":"default"}}}
+{"metric":"checks","type":"Point","data":{"time":"2026-03-09T00:01:05.69901884+05:30","value":1,"tags":{"check":"POST .../messages → has content","group":"","scenario":"default"}}}
+{"metric":"checks","type":"Point","data":{"time":"2026-03-09T00:01:05.69901884+05:30","value":1,"tags":{"check":"POST .../messages → p95 \u003c3500ms","group":"","scenario":"default"}}}
+{"metric":"vus","type":"Point","data":{"time":"2026-03-09T00:01:06.02611374+05:30","value":1,"tags":{}}}
+{"metric":"vus_max","type":"Point","data":{"time":"2026-03-09T00:01:06.02611374+05:30","value":1,"tags":{}}}
+{"metric":"vus","type":"Point","data":{"time":"2026-03-09T00:01:07.025863273+05:30","value":1,"tags":{}}}
+{"metric":"vus_max","type":"Point","data":{"time":"2026-03-09T00:01:07.025863273+05:30","value":1,"tags":{}}}
+{"metric":"data_sent","type":"Point","data":{"time":"2026-03-09T00:01:07.699442945+05:30","value":418,"tags":{"group":"","scenario":"default"}}}
+{"metric":"data_received","type":"Point","data":{"time":"2026-03-09T00:01:07.699442945+05:30","value":759,"tags":{"group":"","scenario":"default"}}}
+{"type":"Metric","data":{"name":"iteration_duration","type":"trend","contains":"time","thresholds":[],"submetrics":null},"metric":"iteration_duration"}
+{"metric":"iteration_duration","type":"Point","data":{"time":"2026-03-09T00:01:07.699442945+05:30","value":3240.36546,"tags":{"group":"","scenario":"default"}}}
+{"type":"Metric","data":{"name":"iterations","type":"counter","contains":"default","thresholds":[],"submetrics":null},"metric":"iterations"}
+{"metric":"iterations","type":"Point","data":{"time":"2026-03-09T00:01:07.699442945+05:30","value":1,"tags":{"group":"","scenario":"default"}}}
+{"metric":"vus","type":"Point","data":{"time":"2026-03-09T00:01:08.025818616+05:30","value":1,"tags":{}}}
+{"metric":"vus_max","type":"Point","data":{"time":"2026-03-09T00:01:08.025818616+05:30","value":1,"tags":{}}}
+{"metric":"http_reqs","type":"Point","data":{"time":"2026-03-09T00:01:08.9052329+05:30","value":1,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_duration","type":"Point","data":{"time":"2026-03-09T00:01:08.9052329+05:30","value":1205.559376,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_blocked","type":"Point","data":{"time":"2026-03-09T00:01:08.9052329+05:30","value":0.007314,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_connecting","type":"Point","data":{"time":"2026-03-09T00:01:08.9052329+05:30","value":0,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_tls_handshaking","type":"Point","data":{"time":"2026-03-09T00:01:08.9052329+05:30","value":0,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_sending","type":"Point","data":{"time":"2026-03-09T00:01:08.9052329+05:30","value":0.053652,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_waiting","type":"Point","data":{"time":"2026-03-09T00:01:08.9052329+05:30","value":1205.396216,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_receiving","type":"Point","data":{"time":"2026-03-09T00:01:08.9052329+05:30","value":0.109508,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_failed","type":"Point","data":{"time":"2026-03-09T00:01:08.9052329+05:30","value":0,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"checks","type":"Point","data":{"time":"2026-03-09T00:01:08.905351837+05:30","value":1,"tags":{"check":"POST .../messages → 200 or 201","group":"","scenario":"default"}}}
+{"metric":"checks","type":"Point","data":{"time":"2026-03-09T00:01:08.905351837+05:30","value":1,"tags":{"check":"POST .../messages → has content","group":"","scenario":"default"}}}
+{"metric":"checks","type":"Point","data":{"time":"2026-03-09T00:01:08.905351837+05:30","value":1,"tags":{"check":"POST .../messages → p95 \u003c3500ms","group":"","scenario":"default"}}}
+{"metric":"vus","type":"Point","data":{"time":"2026-03-09T00:01:09.025751544+05:30","value":1,"tags":{}}}
+{"metric":"vus_max","type":"Point","data":{"time":"2026-03-09T00:01:09.025751544+05:30","value":1,"tags":{}}}
+{"metric":"vus","type":"Point","data":{"time":"2026-03-09T00:01:10.026003376+05:30","value":1,"tags":{}}}
+{"metric":"vus_max","type":"Point","data":{"time":"2026-03-09T00:01:10.026003376+05:30","value":1,"tags":{}}}
+{"metric":"data_sent","type":"Point","data":{"time":"2026-03-09T00:01:10.905932359+05:30","value":426,"tags":{"group":"","scenario":"default"}}}
+{"metric":"data_received","type":"Point","data":{"time":"2026-03-09T00:01:10.905932359+05:30","value":914,"tags":{"group":"","scenario":"default"}}}
+{"metric":"iteration_duration","type":"Point","data":{"time":"2026-03-09T00:01:10.905932359+05:30","value":3206.423759,"tags":{"group":"","scenario":"default"}}}
+{"metric":"iterations","type":"Point","data":{"time":"2026-03-09T00:01:10.905932359+05:30","value":1,"tags":{"group":"","scenario":"default"}}}
+{"metric":"vus","type":"Point","data":{"time":"2026-03-09T00:01:11.025523936+05:30","value":1,"tags":{}}}
+{"metric":"vus_max","type":"Point","data":{"time":"2026-03-09T00:01:11.025523936+05:30","value":1,"tags":{}}}
+{"metric":"vus","type":"Point","data":{"time":"2026-03-09T00:01:12.025966547+05:30","value":1,"tags":{}}}
+{"metric":"vus_max","type":"Point","data":{"time":"2026-03-09T00:01:12.025966547+05:30","value":1,"tags":{}}}
+{"metric":"http_reqs","type":"Point","data":{"time":"2026-03-09T00:01:12.119687293+05:30","value":1,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_duration","type":"Point","data":{"time":"2026-03-09T00:01:12.119687293+05:30","value":1213.565353,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_blocked","type":"Point","data":{"time":"2026-03-09T00:01:12.119687293+05:30","value":0.007184,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_connecting","type":"Point","data":{"time":"2026-03-09T00:01:12.119687293+05:30","value":0,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_tls_handshaking","type":"Point","data":{"time":"2026-03-09T00:01:12.119687293+05:30","value":0,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_sending","type":"Point","data":{"time":"2026-03-09T00:01:12.119687293+05:30","value":0.059763,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_waiting","type":"Point","data":{"time":"2026-03-09T00:01:12.119687293+05:30","value":1213.412063,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_receiving","type":"Point","data":{"time":"2026-03-09T00:01:12.119687293+05:30","value":0.093527,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_failed","type":"Point","data":{"time":"2026-03-09T00:01:12.119687293+05:30","value":0,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"checks","type":"Point","data":{"time":"2026-03-09T00:01:12.119856766+05:30","value":1,"tags":{"check":"POST .../messages → 200 or 201","group":"","scenario":"default"}}}
+{"metric":"checks","type":"Point","data":{"time":"2026-03-09T00:01:12.119856766+05:30","value":1,"tags":{"check":"POST .../messages → has content","group":"","scenario":"default"}}}
+{"metric":"checks","type":"Point","data":{"time":"2026-03-09T00:01:12.119856766+05:30","value":1,"tags":{"check":"POST .../messages → p95 \u003c3500ms","group":"","scenario":"default"}}}
+{"metric":"vus","type":"Point","data":{"time":"2026-03-09T00:01:13.026390811+05:30","value":1,"tags":{}}}
+{"metric":"vus_max","type":"Point","data":{"time":"2026-03-09T00:01:13.026390811+05:30","value":1,"tags":{}}}
+{"metric":"vus","type":"Point","data":{"time":"2026-03-09T00:01:14.026437134+05:30","value":1,"tags":{}}}
+{"metric":"vus_max","type":"Point","data":{"time":"2026-03-09T00:01:14.026437134+05:30","value":1,"tags":{}}}
+{"metric":"data_sent","type":"Point","data":{"time":"2026-03-09T00:01:14.120899496+05:30","value":417,"tags":{"group":"","scenario":"default"}}}
+{"metric":"data_received","type":"Point","data":{"time":"2026-03-09T00:01:14.120899496+05:30","value":1061,"tags":{"group":"","scenario":"default"}}}
+{"metric":"iteration_duration","type":"Point","data":{"time":"2026-03-09T00:01:14.120899496+05:30","value":3214.925277,"tags":{"group":"","scenario":"default"}}}
+{"metric":"iterations","type":"Point","data":{"time":"2026-03-09T00:01:14.120899496+05:30","value":1,"tags":{"group":"","scenario":"default"}}}
+{"metric":"vus","type":"Point","data":{"time":"2026-03-09T00:01:15.025699953+05:30","value":1,"tags":{}}}
+{"metric":"vus_max","type":"Point","data":{"time":"2026-03-09T00:01:15.025699953+05:30","value":1,"tags":{}}}
+{"metric":"http_reqs","type":"Point","data":{"time":"2026-03-09T00:01:15.280619881+05:30","value":1,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_duration","type":"Point","data":{"time":"2026-03-09T00:01:15.280619881+05:30","value":1159.520906,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_blocked","type":"Point","data":{"time":"2026-03-09T00:01:15.280619881+05:30","value":0.007053,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_connecting","type":"Point","data":{"time":"2026-03-09T00:01:15.280619881+05:30","value":0,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_tls_handshaking","type":"Point","data":{"time":"2026-03-09T00:01:15.280619881+05:30","value":0,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_sending","type":"Point","data":{"time":"2026-03-09T00:01:15.280619881+05:30","value":0.051037,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_waiting","type":"Point","data":{"time":"2026-03-09T00:01:15.280619881+05:30","value":1159.371762,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_receiving","type":"Point","data":{"time":"2026-03-09T00:01:15.280619881+05:30","value":0.098107,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_failed","type":"Point","data":{"time":"2026-03-09T00:01:15.280619881+05:30","value":0,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"checks","type":"Point","data":{"time":"2026-03-09T00:01:15.280739869+05:30","value":1,"tags":{"check":"POST .../messages → 200 or 201","group":"","scenario":"default"}}}
+{"metric":"checks","type":"Point","data":{"time":"2026-03-09T00:01:15.280739869+05:30","value":1,"tags":{"check":"POST .../messages → has content","group":"","scenario":"default"}}}
+{"metric":"checks","type":"Point","data":{"time":"2026-03-09T00:01:15.280739869+05:30","value":1,"tags":{"check":"POST .../messages → p95 \u003c3500ms","group":"","scenario":"default"}}}
+{"metric":"vus","type":"Point","data":{"time":"2026-03-09T00:01:16.026427236+05:30","value":1,"tags":{}}}
+{"metric":"vus_max","type":"Point","data":{"time":"2026-03-09T00:01:16.026427236+05:30","value":1,"tags":{}}}
+{"metric":"vus","type":"Point","data":{"time":"2026-03-09T00:01:17.026391504+05:30","value":1,"tags":{}}}
+{"metric":"vus_max","type":"Point","data":{"time":"2026-03-09T00:01:17.026391504+05:30","value":1,"tags":{}}}
+{"metric":"data_sent","type":"Point","data":{"time":"2026-03-09T00:01:17.281572562+05:30","value":419,"tags":{"group":"","scenario":"default"}}}
+{"metric":"data_received","type":"Point","data":{"time":"2026-03-09T00:01:17.281572562+05:30","value":1085,"tags":{"group":"","scenario":"default"}}}
+{"metric":"iteration_duration","type":"Point","data":{"time":"2026-03-09T00:01:17.281572562+05:30","value":3160.628321,"tags":{"group":"","scenario":"default"}}}
+{"metric":"iterations","type":"Point","data":{"time":"2026-03-09T00:01:17.281572562+05:30","value":1,"tags":{"group":"","scenario":"default"}}}
+{"metric":"vus","type":"Point","data":{"time":"2026-03-09T00:01:18.026464456+05:30","value":1,"tags":{}}}
+{"metric":"vus_max","type":"Point","data":{"time":"2026-03-09T00:01:18.026464456+05:30","value":1,"tags":{}}}
+{"metric":"http_reqs","type":"Point","data":{"time":"2026-03-09T00:01:18.823319542+05:30","value":1,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_duration","type":"Point","data":{"time":"2026-03-09T00:01:18.823319542+05:30","value":1541.403977,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_blocked","type":"Point","data":{"time":"2026-03-09T00:01:18.823319542+05:30","value":0.008106,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_connecting","type":"Point","data":{"time":"2026-03-09T00:01:18.823319542+05:30","value":0,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_tls_handshaking","type":"Point","data":{"time":"2026-03-09T00:01:18.823319542+05:30","value":0,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_sending","type":"Point","data":{"time":"2026-03-09T00:01:18.823319542+05:30","value":0.055696,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_waiting","type":"Point","data":{"time":"2026-03-09T00:01:18.823319542+05:30","value":1541.248842,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_receiving","type":"Point","data":{"time":"2026-03-09T00:01:18.823319542+05:30","value":0.099439,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_failed","type":"Point","data":{"time":"2026-03-09T00:01:18.823319542+05:30","value":0,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"checks","type":"Point","data":{"time":"2026-03-09T00:01:18.823403923+05:30","value":1,"tags":{"check":"POST .../messages → 200 or 201","group":"","scenario":"default"}}}
+{"metric":"checks","type":"Point","data":{"time":"2026-03-09T00:01:18.823403923+05:30","value":1,"tags":{"check":"POST .../messages → has content","group":"","scenario":"default"}}}
+{"metric":"checks","type":"Point","data":{"time":"2026-03-09T00:01:18.823403923+05:30","value":1,"tags":{"check":"POST .../messages → p95 \u003c3500ms","group":"","scenario":"default"}}}
+{"metric":"vus","type":"Point","data":{"time":"2026-03-09T00:01:19.026314221+05:30","value":1,"tags":{}}}
+{"metric":"vus_max","type":"Point","data":{"time":"2026-03-09T00:01:19.026314221+05:30","value":1,"tags":{}}}
+{"metric":"vus","type":"Point","data":{"time":"2026-03-09T00:01:20.025985964+05:30","value":1,"tags":{}}}
+{"metric":"vus_max","type":"Point","data":{"time":"2026-03-09T00:01:20.025985964+05:30","value":1,"tags":{}}}
+{"metric":"data_sent","type":"Point","data":{"time":"2026-03-09T00:01:20.824225256+05:30","value":421,"tags":{"group":"","scenario":"default"}}}
+{"metric":"data_received","type":"Point","data":{"time":"2026-03-09T00:01:20.824225256+05:30","value":1431,"tags":{"group":"","scenario":"default"}}}
+{"metric":"iteration_duration","type":"Point","data":{"time":"2026-03-09T00:01:20.824225256+05:30","value":3542.566189,"tags":{"group":"","scenario":"default"}}}
+{"metric":"iterations","type":"Point","data":{"time":"2026-03-09T00:01:20.824225256+05:30","value":1,"tags":{"group":"","scenario":"default"}}}
+{"metric":"vus","type":"Point","data":{"time":"2026-03-09T00:01:21.026161512+05:30","value":1,"tags":{}}}
+{"metric":"vus_max","type":"Point","data":{"time":"2026-03-09T00:01:21.026161512+05:30","value":1,"tags":{}}}
+{"metric":"vus","type":"Point","data":{"time":"2026-03-09T00:01:22.026093343+05:30","value":1,"tags":{}}}
+{"metric":"vus_max","type":"Point","data":{"time":"2026-03-09T00:01:22.026093343+05:30","value":1,"tags":{}}}
+{"metric":"http_reqs","type":"Point","data":{"time":"2026-03-09T00:01:22.103978502+05:30","value":1,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_duration","type":"Point","data":{"time":"2026-03-09T00:01:22.103978502+05:30","value":1279.554027,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_blocked","type":"Point","data":{"time":"2026-03-09T00:01:22.103978502+05:30","value":0.007024,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_connecting","type":"Point","data":{"time":"2026-03-09T00:01:22.103978502+05:30","value":0,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_tls_handshaking","type":"Point","data":{"time":"2026-03-09T00:01:22.103978502+05:30","value":0,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_sending","type":"Point","data":{"time":"2026-03-09T00:01:22.103978502+05:30","value":0.033984,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_waiting","type":"Point","data":{"time":"2026-03-09T00:01:22.103978502+05:30","value":1279.416957,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_receiving","type":"Point","data":{"time":"2026-03-09T00:01:22.103978502+05:30","value":0.103086,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_failed","type":"Point","data":{"time":"2026-03-09T00:01:22.103978502+05:30","value":0,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"checks","type":"Point","data":{"time":"2026-03-09T00:01:22.104063994+05:30","value":1,"tags":{"check":"POST .../messages → 200 or 201","group":"","scenario":"default"}}}
+{"metric":"checks","type":"Point","data":{"time":"2026-03-09T00:01:22.104063994+05:30","value":1,"tags":{"check":"POST .../messages → has content","group":"","scenario":"default"}}}
+{"metric":"checks","type":"Point","data":{"time":"2026-03-09T00:01:22.104063994+05:30","value":1,"tags":{"check":"POST .../messages → p95 \u003c3500ms","group":"","scenario":"default"}}}
+{"metric":"vus","type":"Point","data":{"time":"2026-03-09T00:01:23.025738285+05:30","value":1,"tags":{}}}
+{"metric":"vus_max","type":"Point","data":{"time":"2026-03-09T00:01:23.025738285+05:30","value":1,"tags":{}}}
+{"metric":"vus","type":"Point","data":{"time":"2026-03-09T00:01:24.025616337+05:30","value":1,"tags":{}}}
+{"metric":"vus_max","type":"Point","data":{"time":"2026-03-09T00:01:24.025616337+05:30","value":1,"tags":{}}}
+{"metric":"data_sent","type":"Point","data":{"time":"2026-03-09T00:01:24.10501017+05:30","value":418,"tags":{"group":"","scenario":"default"}}}
+{"metric":"data_received","type":"Point","data":{"time":"2026-03-09T00:01:24.10501017+05:30","value":1093,"tags":{"group":"","scenario":"default"}}}
+{"metric":"iteration_duration","type":"Point","data":{"time":"2026-03-09T00:01:24.10501017+05:30","value":3280.739728,"tags":{"group":"","scenario":"default"}}}
+{"metric":"iterations","type":"Point","data":{"time":"2026-03-09T00:01:24.10501017+05:30","value":1,"tags":{"group":"","scenario":"default"}}}
+{"metric":"vus","type":"Point","data":{"time":"2026-03-09T00:01:25.025823983+05:30","value":1,"tags":{}}}
+{"metric":"vus_max","type":"Point","data":{"time":"2026-03-09T00:01:25.025823983+05:30","value":1,"tags":{}}}
+{"metric":"http_reqs","type":"Point","data":{"time":"2026-03-09T00:01:25.730387336+05:30","value":1,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_duration","type":"Point","data":{"time":"2026-03-09T00:01:25.730387336+05:30","value":1625.200079,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_blocked","type":"Point","data":{"time":"2026-03-09T00:01:25.730387336+05:30","value":0.006553,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_connecting","type":"Point","data":{"time":"2026-03-09T00:01:25.730387336+05:30","value":0,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_tls_handshaking","type":"Point","data":{"time":"2026-03-09T00:01:25.730387336+05:30","value":0,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_sending","type":"Point","data":{"time":"2026-03-09T00:01:25.730387336+05:30","value":0.029265,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_waiting","type":"Point","data":{"time":"2026-03-09T00:01:25.730387336+05:30","value":1625.038041,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_receiving","type":"Point","data":{"time":"2026-03-09T00:01:25.730387336+05:30","value":0.132773,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_failed","type":"Point","data":{"time":"2026-03-09T00:01:25.730387336+05:30","value":0,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"checks","type":"Point","data":{"time":"2026-03-09T00:01:25.730468059+05:30","value":1,"tags":{"check":"POST .../messages → 200 or 201","group":"","scenario":"default"}}}
+{"metric":"checks","type":"Point","data":{"time":"2026-03-09T00:01:25.730468059+05:30","value":1,"tags":{"check":"POST .../messages → has content","group":"","scenario":"default"}}}
+{"metric":"checks","type":"Point","data":{"time":"2026-03-09T00:01:25.730468059+05:30","value":1,"tags":{"check":"POST .../messages → p95 \u003c3500ms","group":"","scenario":"default"}}}
+{"metric":"vus","type":"Point","data":{"time":"2026-03-09T00:01:26.025798681+05:30","value":1,"tags":{}}}
+{"metric":"vus_max","type":"Point","data":{"time":"2026-03-09T00:01:26.025798681+05:30","value":1,"tags":{}}}
+{"metric":"vus","type":"Point","data":{"time":"2026-03-09T00:01:27.025984988+05:30","value":1,"tags":{}}}
+{"metric":"vus_max","type":"Point","data":{"time":"2026-03-09T00:01:27.025984988+05:30","value":1,"tags":{}}}
+{"metric":"data_sent","type":"Point","data":{"time":"2026-03-09T00:01:27.731011289+05:30","value":426,"tags":{"group":"","scenario":"default"}}}
+{"metric":"data_received","type":"Point","data":{"time":"2026-03-09T00:01:27.731011289+05:30","value":1615,"tags":{"group":"","scenario":"default"}}}
+{"metric":"iteration_duration","type":"Point","data":{"time":"2026-03-09T00:01:27.731011289+05:30","value":3625.965602,"tags":{"group":"","scenario":"default"}}}
+{"metric":"iterations","type":"Point","data":{"time":"2026-03-09T00:01:27.731011289+05:30","value":1,"tags":{"group":"","scenario":"default"}}}
+{"metric":"vus","type":"Point","data":{"time":"2026-03-09T00:01:28.02614396+05:30","value":1,"tags":{}}}
+{"metric":"vus_max","type":"Point","data":{"time":"2026-03-09T00:01:28.02614396+05:30","value":1,"tags":{}}}
+{"metric":"http_reqs","type":"Point","data":{"time":"2026-03-09T00:01:28.835693055+05:30","value":1,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_duration","type":"Point","data":{"time":"2026-03-09T00:01:28.835693055+05:30","value":1104.480012,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_blocked","type":"Point","data":{"time":"2026-03-09T00:01:28.835693055+05:30","value":0.007655,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_connecting","type":"Point","data":{"time":"2026-03-09T00:01:28.835693055+05:30","value":0,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_tls_handshaking","type":"Point","data":{"time":"2026-03-09T00:01:28.835693055+05:30","value":0,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_sending","type":"Point","data":{"time":"2026-03-09T00:01:28.835693055+05:30","value":0.053171,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_waiting","type":"Point","data":{"time":"2026-03-09T00:01:28.835693055+05:30","value":1104.286444,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_receiving","type":"Point","data":{"time":"2026-03-09T00:01:28.835693055+05:30","value":0.140397,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_failed","type":"Point","data":{"time":"2026-03-09T00:01:28.835693055+05:30","value":0,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"checks","type":"Point","data":{"time":"2026-03-09T00:01:28.835782255+05:30","value":1,"tags":{"check":"POST .../messages → 200 or 201","group":"","scenario":"default"}}}
+{"metric":"checks","type":"Point","data":{"time":"2026-03-09T00:01:28.835782255+05:30","value":1,"tags":{"check":"POST .../messages → has content","group":"","scenario":"default"}}}
+{"metric":"checks","type":"Point","data":{"time":"2026-03-09T00:01:28.835782255+05:30","value":1,"tags":{"check":"POST .../messages → p95 \u003c3500ms","group":"","scenario":"default"}}}
+{"metric":"vus","type":"Point","data":{"time":"2026-03-09T00:01:29.026459715+05:30","value":1,"tags":{}}}
+{"metric":"vus_max","type":"Point","data":{"time":"2026-03-09T00:01:29.026459715+05:30","value":1,"tags":{}}}
+{"metric":"vus","type":"Point","data":{"time":"2026-03-09T00:01:30.025548332+05:30","value":1,"tags":{}}}
+{"metric":"vus_max","type":"Point","data":{"time":"2026-03-09T00:01:30.025548332+05:30","value":1,"tags":{}}}
+{"metric":"data_sent","type":"Point","data":{"time":"2026-03-09T00:01:30.836928353+05:30","value":417,"tags":{"group":"","scenario":"default"}}}
+{"metric":"data_received","type":"Point","data":{"time":"2026-03-09T00:01:30.836928353+05:30","value":1264,"tags":{"group":"","scenario":"default"}}}
+{"metric":"iteration_duration","type":"Point","data":{"time":"2026-03-09T00:01:30.836928353+05:30","value":3105.876797,"tags":{"group":"","scenario":"default"}}}
+{"metric":"iterations","type":"Point","data":{"time":"2026-03-09T00:01:30.836928353+05:30","value":1,"tags":{"group":"","scenario":"default"}}}
+{"metric":"vus","type":"Point","data":{"time":"2026-03-09T00:01:31.025825536+05:30","value":1,"tags":{}}}
+{"metric":"vus_max","type":"Point","data":{"time":"2026-03-09T00:01:31.025825536+05:30","value":1,"tags":{}}}
+{"metric":"vus","type":"Point","data":{"time":"2026-03-09T00:01:32.025525627+05:30","value":1,"tags":{}}}
+{"metric":"vus_max","type":"Point","data":{"time":"2026-03-09T00:01:32.025525627+05:30","value":1,"tags":{}}}
+{"metric":"http_reqs","type":"Point","data":{"time":"2026-03-09T00:01:32.505560276+05:30","value":1,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_duration","type":"Point","data":{"time":"2026-03-09T00:01:32.505560276+05:30","value":1668.341681,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_blocked","type":"Point","data":{"time":"2026-03-09T00:01:32.505560276+05:30","value":0.011362,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_connecting","type":"Point","data":{"time":"2026-03-09T00:01:32.505560276+05:30","value":0,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_tls_handshaking","type":"Point","data":{"time":"2026-03-09T00:01:32.505560276+05:30","value":0,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_sending","type":"Point","data":{"time":"2026-03-09T00:01:32.505560276+05:30","value":0.070925,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_waiting","type":"Point","data":{"time":"2026-03-09T00:01:32.505560276+05:30","value":1668.146269,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_receiving","type":"Point","data":{"time":"2026-03-09T00:01:32.505560276+05:30","value":0.124487,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_failed","type":"Point","data":{"time":"2026-03-09T00:01:32.505560276+05:30","value":0,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"checks","type":"Point","data":{"time":"2026-03-09T00:01:32.505658212+05:30","value":1,"tags":{"check":"POST .../messages → 200 or 201","group":"","scenario":"default"}}}
+{"metric":"checks","type":"Point","data":{"time":"2026-03-09T00:01:32.505658212+05:30","value":1,"tags":{"check":"POST .../messages → has content","group":"","scenario":"default"}}}
+{"metric":"checks","type":"Point","data":{"time":"2026-03-09T00:01:32.505658212+05:30","value":1,"tags":{"check":"POST .../messages → p95 \u003c3500ms","group":"","scenario":"default"}}}
+{"metric":"vus","type":"Point","data":{"time":"2026-03-09T00:01:33.025728711+05:30","value":1,"tags":{}}}
+{"metric":"vus_max","type":"Point","data":{"time":"2026-03-09T00:01:33.025728711+05:30","value":1,"tags":{}}}
+{"metric":"vus","type":"Point","data":{"time":"2026-03-09T00:01:34.025835497+05:30","value":1,"tags":{}}}
+{"metric":"vus_max","type":"Point","data":{"time":"2026-03-09T00:01:34.025835497+05:30","value":1,"tags":{}}}
+{"metric":"data_sent","type":"Point","data":{"time":"2026-03-09T00:01:34.506780513+05:30","value":419,"tags":{"group":"","scenario":"default"}}}
+{"metric":"data_received","type":"Point","data":{"time":"2026-03-09T00:01:34.506780513+05:30","value":1581,"tags":{"group":"","scenario":"default"}}}
+{"metric":"iteration_duration","type":"Point","data":{"time":"2026-03-09T00:01:34.506780513+05:30","value":3669.79431,"tags":{"group":"","scenario":"default"}}}
+{"metric":"iterations","type":"Point","data":{"time":"2026-03-09T00:01:34.506780513+05:30","value":1,"tags":{"group":"","scenario":"default"}}}
+{"metric":"vus","type":"Point","data":{"time":"2026-03-09T00:01:35.025917191+05:30","value":1,"tags":{}}}
+{"metric":"vus_max","type":"Point","data":{"time":"2026-03-09T00:01:35.025917191+05:30","value":1,"tags":{}}}
+{"metric":"vus","type":"Point","data":{"time":"2026-03-09T00:01:36.026011284+05:30","value":1,"tags":{}}}
+{"metric":"vus_max","type":"Point","data":{"time":"2026-03-09T00:01:36.026011284+05:30","value":1,"tags":{}}}
+{"metric":"http_reqs","type":"Point","data":{"time":"2026-03-09T00:01:36.070521861+05:30","value":1,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_duration","type":"Point","data":{"time":"2026-03-09T00:01:36.070521861+05:30","value":1563.509086,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_blocked","type":"Point","data":{"time":"2026-03-09T00:01:36.070521861+05:30","value":0.009238,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_connecting","type":"Point","data":{"time":"2026-03-09T00:01:36.070521861+05:30","value":0,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_tls_handshaking","type":"Point","data":{"time":"2026-03-09T00:01:36.070521861+05:30","value":0,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_sending","type":"Point","data":{"time":"2026-03-09T00:01:36.070521861+05:30","value":0.04196,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_waiting","type":"Point","data":{"time":"2026-03-09T00:01:36.070521861+05:30","value":1563.368689,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_receiving","type":"Point","data":{"time":"2026-03-09T00:01:36.070521861+05:30","value":0.098437,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_failed","type":"Point","data":{"time":"2026-03-09T00:01:36.070521861+05:30","value":0,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"checks","type":"Point","data":{"time":"2026-03-09T00:01:36.070601042+05:30","value":1,"tags":{"check":"POST .../messages → 200 or 201","group":"","scenario":"default"}}}
+{"metric":"checks","type":"Point","data":{"time":"2026-03-09T00:01:36.070601042+05:30","value":1,"tags":{"check":"POST .../messages → has content","group":"","scenario":"default"}}}
+{"metric":"checks","type":"Point","data":{"time":"2026-03-09T00:01:36.070601042+05:30","value":1,"tags":{"check":"POST .../messages → p95 \u003c3500ms","group":"","scenario":"default"}}}
+{"metric":"vus","type":"Point","data":{"time":"2026-03-09T00:01:37.025559092+05:30","value":1,"tags":{}}}
+{"metric":"vus_max","type":"Point","data":{"time":"2026-03-09T00:01:37.025559092+05:30","value":1,"tags":{}}}
+{"metric":"vus","type":"Point","data":{"time":"2026-03-09T00:01:38.02631809+05:30","value":1,"tags":{}}}
+{"metric":"vus_max","type":"Point","data":{"time":"2026-03-09T00:01:38.02631809+05:30","value":1,"tags":{}}}
+{"metric":"data_sent","type":"Point","data":{"time":"2026-03-09T00:01:38.071527369+05:30","value":421,"tags":{"group":"","scenario":"default"}}}
+{"metric":"data_received","type":"Point","data":{"time":"2026-03-09T00:01:38.071527369+05:30","value":1367,"tags":{"group":"","scenario":"default"}}}
+{"metric":"iteration_duration","type":"Point","data":{"time":"2026-03-09T00:01:38.071527369+05:30","value":3564.687283,"tags":{"group":"","scenario":"default"}}}
+{"metric":"iterations","type":"Point","data":{"time":"2026-03-09T00:01:38.071527369+05:30","value":1,"tags":{"group":"","scenario":"default"}}}
+{"metric":"vus","type":"Point","data":{"time":"2026-03-09T00:01:39.026565089+05:30","value":1,"tags":{}}}
+{"metric":"vus_max","type":"Point","data":{"time":"2026-03-09T00:01:39.026565089+05:30","value":1,"tags":{}}}
+{"metric":"http_reqs","type":"Point","data":{"time":"2026-03-09T00:01:39.374694897+05:30","value":1,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_duration","type":"Point","data":{"time":"2026-03-09T00:01:39.374694897+05:30","value":1302.936859,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_blocked","type":"Point","data":{"time":"2026-03-09T00:01:39.374694897+05:30","value":0.008236,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_connecting","type":"Point","data":{"time":"2026-03-09T00:01:39.374694897+05:30","value":0,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_tls_handshaking","type":"Point","data":{"time":"2026-03-09T00:01:39.374694897+05:30","value":0,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_sending","type":"Point","data":{"time":"2026-03-09T00:01:39.374694897+05:30","value":0.062669,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_waiting","type":"Point","data":{"time":"2026-03-09T00:01:39.374694897+05:30","value":1302.773538,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_receiving","type":"Point","data":{"time":"2026-03-09T00:01:39.374694897+05:30","value":0.100652,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_failed","type":"Point","data":{"time":"2026-03-09T00:01:39.374694897+05:30","value":0,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"checks","type":"Point","data":{"time":"2026-03-09T00:01:39.374778075+05:30","value":1,"tags":{"check":"POST .../messages → 200 or 201","group":"","scenario":"default"}}}
+{"metric":"checks","type":"Point","data":{"time":"2026-03-09T00:01:39.374778075+05:30","value":1,"tags":{"check":"POST .../messages → has content","group":"","scenario":"default"}}}
+{"metric":"checks","type":"Point","data":{"time":"2026-03-09T00:01:39.374778075+05:30","value":1,"tags":{"check":"POST .../messages → p95 \u003c3500ms","group":"","scenario":"default"}}}
+{"metric":"vus","type":"Point","data":{"time":"2026-03-09T00:01:40.026126158+05:30","value":1,"tags":{}}}
+{"metric":"vus_max","type":"Point","data":{"time":"2026-03-09T00:01:40.026126158+05:30","value":1,"tags":{}}}
+{"metric":"vus","type":"Point","data":{"time":"2026-03-09T00:01:41.026093424+05:30","value":1,"tags":{}}}
+{"metric":"vus_max","type":"Point","data":{"time":"2026-03-09T00:01:41.026093424+05:30","value":1,"tags":{}}}
+{"metric":"data_sent","type":"Point","data":{"time":"2026-03-09T00:01:41.375466585+05:30","value":418,"tags":{"group":"","scenario":"default"}}}
+{"metric":"data_received","type":"Point","data":{"time":"2026-03-09T00:01:41.375466585+05:30","value":1172,"tags":{"group":"","scenario":"default"}}}
+{"metric":"iteration_duration","type":"Point","data":{"time":"2026-03-09T00:01:41.375466585+05:30","value":3303.892267,"tags":{"group":"","scenario":"default"}}}
+{"metric":"iterations","type":"Point","data":{"time":"2026-03-09T00:01:41.375466585+05:30","value":1,"tags":{"group":"","scenario":"default"}}}
+{"metric":"vus","type":"Point","data":{"time":"2026-03-09T00:01:42.02598432+05:30","value":1,"tags":{}}}
+{"metric":"vus_max","type":"Point","data":{"time":"2026-03-09T00:01:42.02598432+05:30","value":1,"tags":{}}}
+{"metric":"http_reqs","type":"Point","data":{"time":"2026-03-09T00:01:42.979866716+05:30","value":1,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_duration","type":"Point","data":{"time":"2026-03-09T00:01:42.979866716+05:30","value":1604.204349,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_blocked","type":"Point","data":{"time":"2026-03-09T00:01:42.979866716+05:30","value":0.007444,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_connecting","type":"Point","data":{"time":"2026-03-09T00:01:42.979866716+05:30","value":0,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_tls_handshaking","type":"Point","data":{"time":"2026-03-09T00:01:42.979866716+05:30","value":0,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_sending","type":"Point","data":{"time":"2026-03-09T00:01:42.979866716+05:30","value":0.042712,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_waiting","type":"Point","data":{"time":"2026-03-09T00:01:42.979866716+05:30","value":1604.036839,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_receiving","type":"Point","data":{"time":"2026-03-09T00:01:42.979866716+05:30","value":0.124798,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_failed","type":"Point","data":{"time":"2026-03-09T00:01:42.979866716+05:30","value":0,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"checks","type":"Point","data":{"time":"2026-03-09T00:01:42.979957488+05:30","value":1,"tags":{"check":"POST .../messages → 200 or 201","group":"","scenario":"default"}}}
+{"metric":"checks","type":"Point","data":{"time":"2026-03-09T00:01:42.979957488+05:30","value":1,"tags":{"check":"POST .../messages → has content","group":"","scenario":"default"}}}
+{"metric":"checks","type":"Point","data":{"time":"2026-03-09T00:01:42.979957488+05:30","value":1,"tags":{"check":"POST .../messages → p95 \u003c3500ms","group":"","scenario":"default"}}}
+{"metric":"vus","type":"Point","data":{"time":"2026-03-09T00:01:43.025959731+05:30","value":1,"tags":{}}}
+{"metric":"vus_max","type":"Point","data":{"time":"2026-03-09T00:01:43.025959731+05:30","value":1,"tags":{}}}
+{"metric":"vus","type":"Point","data":{"time":"2026-03-09T00:01:44.026309419+05:30","value":1,"tags":{}}}
+{"metric":"vus_max","type":"Point","data":{"time":"2026-03-09T00:01:44.026309419+05:30","value":1,"tags":{}}}
+{"metric":"data_sent","type":"Point","data":{"time":"2026-03-09T00:01:44.980290198+05:30","value":426,"tags":{"group":"","scenario":"default"}}}
+{"metric":"data_received","type":"Point","data":{"time":"2026-03-09T00:01:44.980290198+05:30","value":1660,"tags":{"group":"","scenario":"default"}}}
+{"metric":"iteration_duration","type":"Point","data":{"time":"2026-03-09T00:01:44.980290198+05:30","value":3604.780601,"tags":{"group":"","scenario":"default"}}}
+{"metric":"iterations","type":"Point","data":{"time":"2026-03-09T00:01:44.980290198+05:30","value":1,"tags":{"group":"","scenario":"default"}}}
+{"metric":"vus","type":"Point","data":{"time":"2026-03-09T00:01:45.026497643+05:30","value":1,"tags":{}}}
+{"metric":"vus_max","type":"Point","data":{"time":"2026-03-09T00:01:45.026497643+05:30","value":1,"tags":{}}}
+{"metric":"vus","type":"Point","data":{"time":"2026-03-09T00:01:46.025555792+05:30","value":1,"tags":{}}}
+{"metric":"vus_max","type":"Point","data":{"time":"2026-03-09T00:01:46.025555792+05:30","value":1,"tags":{}}}
+{"metric":"http_reqs","type":"Point","data":{"time":"2026-03-09T00:01:46.311634755+05:30","value":1,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_duration","type":"Point","data":{"time":"2026-03-09T00:01:46.311634755+05:30","value":1331.138355,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_blocked","type":"Point","data":{"time":"2026-03-09T00:01:46.311634755+05:30","value":0.007143,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_connecting","type":"Point","data":{"time":"2026-03-09T00:01:46.311634755+05:30","value":0,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_tls_handshaking","type":"Point","data":{"time":"2026-03-09T00:01:46.311634755+05:30","value":0,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_sending","type":"Point","data":{"time":"2026-03-09T00:01:46.311634755+05:30","value":0.045206,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_waiting","type":"Point","data":{"time":"2026-03-09T00:01:46.311634755+05:30","value":1330.939065,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_receiving","type":"Point","data":{"time":"2026-03-09T00:01:46.311634755+05:30","value":0.154084,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_failed","type":"Point","data":{"time":"2026-03-09T00:01:46.311634755+05:30","value":0,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"checks","type":"Point","data":{"time":"2026-03-09T00:01:46.311750034+05:30","value":1,"tags":{"check":"POST .../messages → 200 or 201","group":"","scenario":"default"}}}
+{"metric":"checks","type":"Point","data":{"time":"2026-03-09T00:01:46.311750034+05:30","value":1,"tags":{"check":"POST .../messages → has content","group":"","scenario":"default"}}}
+{"metric":"checks","type":"Point","data":{"time":"2026-03-09T00:01:46.311750034+05:30","value":1,"tags":{"check":"POST .../messages → p95 \u003c3500ms","group":"","scenario":"default"}}}
+{"metric":"vus","type":"Point","data":{"time":"2026-03-09T00:01:47.025970376+05:30","value":1,"tags":{}}}
+{"metric":"vus_max","type":"Point","data":{"time":"2026-03-09T00:01:47.025970376+05:30","value":1,"tags":{}}}
+{"metric":"vus","type":"Point","data":{"time":"2026-03-09T00:01:48.026191135+05:30","value":1,"tags":{}}}
+{"metric":"vus_max","type":"Point","data":{"time":"2026-03-09T00:01:48.026191135+05:30","value":1,"tags":{}}}
+{"metric":"data_sent","type":"Point","data":{"time":"2026-03-09T00:01:48.312566075+05:30","value":417,"tags":{"group":"","scenario":"default"}}}
+{"metric":"data_received","type":"Point","data":{"time":"2026-03-09T00:01:48.312566075+05:30","value":1270,"tags":{"group":"","scenario":"default"}}}
+{"metric":"iteration_duration","type":"Point","data":{"time":"2026-03-09T00:01:48.312566075+05:30","value":3332.231532,"tags":{"group":"","scenario":"default"}}}
+{"metric":"iterations","type":"Point","data":{"time":"2026-03-09T00:01:48.312566075+05:30","value":1,"tags":{"group":"","scenario":"default"}}}
+{"metric":"vus","type":"Point","data":{"time":"2026-03-09T00:01:49.025590225+05:30","value":1,"tags":{}}}
+{"metric":"vus_max","type":"Point","data":{"time":"2026-03-09T00:01:49.025590225+05:30","value":1,"tags":{}}}
+{"metric":"http_reqs","type":"Point","data":{"time":"2026-03-09T00:01:49.751275956+05:30","value":1,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_duration","type":"Point","data":{"time":"2026-03-09T00:01:49.751275956+05:30","value":1438.529438,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_blocked","type":"Point","data":{"time":"2026-03-09T00:01:49.751275956+05:30","value":0.006342,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_connecting","type":"Point","data":{"time":"2026-03-09T00:01:49.751275956+05:30","value":0,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_tls_handshaking","type":"Point","data":{"time":"2026-03-09T00:01:49.751275956+05:30","value":0,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_sending","type":"Point","data":{"time":"2026-03-09T00:01:49.751275956+05:30","value":0.057079,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_waiting","type":"Point","data":{"time":"2026-03-09T00:01:49.751275956+05:30","value":1438.379403,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_receiving","type":"Point","data":{"time":"2026-03-09T00:01:49.751275956+05:30","value":0.092956,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_failed","type":"Point","data":{"time":"2026-03-09T00:01:49.751275956+05:30","value":0,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"checks","type":"Point","data":{"time":"2026-03-09T00:01:49.751356019+05:30","value":1,"tags":{"check":"POST .../messages → 200 or 201","group":"","scenario":"default"}}}
+{"metric":"checks","type":"Point","data":{"time":"2026-03-09T00:01:49.751356019+05:30","value":1,"tags":{"check":"POST .../messages → has content","group":"","scenario":"default"}}}
+{"metric":"checks","type":"Point","data":{"time":"2026-03-09T00:01:49.751356019+05:30","value":1,"tags":{"check":"POST .../messages → p95 \u003c3500ms","group":"","scenario":"default"}}}
+{"metric":"vus","type":"Point","data":{"time":"2026-03-09T00:01:50.026437946+05:30","value":1,"tags":{}}}
+{"metric":"vus_max","type":"Point","data":{"time":"2026-03-09T00:01:50.026437946+05:30","value":1,"tags":{}}}
+{"metric":"vus","type":"Point","data":{"time":"2026-03-09T00:01:51.026326445+05:30","value":1,"tags":{}}}
+{"metric":"vus_max","type":"Point","data":{"time":"2026-03-09T00:01:51.026326445+05:30","value":1,"tags":{}}}
+{"metric":"data_sent","type":"Point","data":{"time":"2026-03-09T00:01:51.752434194+05:30","value":419,"tags":{"group":"","scenario":"default"}}}
+{"metric":"data_received","type":"Point","data":{"time":"2026-03-09T00:01:51.752434194+05:30","value":1577,"tags":{"group":"","scenario":"default"}}}
+{"metric":"iteration_duration","type":"Point","data":{"time":"2026-03-09T00:01:51.752434194+05:30","value":3439.830277,"tags":{"group":"","scenario":"default"}}}
+{"metric":"iterations","type":"Point","data":{"time":"2026-03-09T00:01:51.752434194+05:30","value":1,"tags":{"group":"","scenario":"default"}}}
+{"metric":"vus","type":"Point","data":{"time":"2026-03-09T00:01:52.025509375+05:30","value":1,"tags":{}}}
+{"metric":"vus_max","type":"Point","data":{"time":"2026-03-09T00:01:52.025509375+05:30","value":1,"tags":{}}}
+{"metric":"vus","type":"Point","data":{"time":"2026-03-09T00:01:53.026381924+05:30","value":1,"tags":{}}}
+{"metric":"vus_max","type":"Point","data":{"time":"2026-03-09T00:01:53.026381924+05:30","value":1,"tags":{}}}
+{"metric":"http_reqs","type":"Point","data":{"time":"2026-03-09T00:01:53.307942996+05:30","value":1,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_duration","type":"Point","data":{"time":"2026-03-09T00:01:53.307942996+05:30","value":1555.33431,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_blocked","type":"Point","data":{"time":"2026-03-09T00:01:53.307942996+05:30","value":0.006853,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_connecting","type":"Point","data":{"time":"2026-03-09T00:01:53.307942996+05:30","value":0,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_tls_handshaking","type":"Point","data":{"time":"2026-03-09T00:01:53.307942996+05:30","value":0,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_sending","type":"Point","data":{"time":"2026-03-09T00:01:53.307942996+05:30","value":0.038834,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_waiting","type":"Point","data":{"time":"2026-03-09T00:01:53.307942996+05:30","value":1555.208941,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_receiving","type":"Point","data":{"time":"2026-03-09T00:01:53.307942996+05:30","value":0.086535,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_failed","type":"Point","data":{"time":"2026-03-09T00:01:53.307942996+05:30","value":0,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"checks","type":"Point","data":{"time":"2026-03-09T00:01:53.30802907+05:30","value":1,"tags":{"check":"POST .../messages → 200 or 201","group":"","scenario":"default"}}}
+{"metric":"checks","type":"Point","data":{"time":"2026-03-09T00:01:53.30802907+05:30","value":1,"tags":{"check":"POST .../messages → has content","group":"","scenario":"default"}}}
+{"metric":"checks","type":"Point","data":{"time":"2026-03-09T00:01:53.30802907+05:30","value":1,"tags":{"check":"POST .../messages → p95 \u003c3500ms","group":"","scenario":"default"}}}
+{"metric":"vus","type":"Point","data":{"time":"2026-03-09T00:01:54.025893897+05:30","value":1,"tags":{}}}
+{"metric":"vus_max","type":"Point","data":{"time":"2026-03-09T00:01:54.025893897+05:30","value":1,"tags":{}}}
+{"metric":"vus","type":"Point","data":{"time":"2026-03-09T00:01:55.026042835+05:30","value":1,"tags":{}}}
+{"metric":"vus_max","type":"Point","data":{"time":"2026-03-09T00:01:55.026042835+05:30","value":1,"tags":{}}}
+{"metric":"data_sent","type":"Point","data":{"time":"2026-03-09T00:01:55.308230974+05:30","value":421,"tags":{"group":"","scenario":"default"}}}
+{"metric":"data_received","type":"Point","data":{"time":"2026-03-09T00:01:55.308230974+05:30","value":1490,"tags":{"group":"","scenario":"default"}}}
+{"metric":"iteration_duration","type":"Point","data":{"time":"2026-03-09T00:01:55.308230974+05:30","value":3555.763418,"tags":{"group":"","scenario":"default"}}}
+{"metric":"iterations","type":"Point","data":{"time":"2026-03-09T00:01:55.308230974+05:30","value":1,"tags":{"group":"","scenario":"default"}}}
+{"metric":"vus","type":"Point","data":{"time":"2026-03-09T00:01:56.025677679+05:30","value":1,"tags":{}}}
+{"metric":"vus_max","type":"Point","data":{"time":"2026-03-09T00:01:56.025677679+05:30","value":1,"tags":{}}}
+{"metric":"http_reqs","type":"Point","data":{"time":"2026-03-09T00:01:56.657750625+05:30","value":1,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_duration","type":"Point","data":{"time":"2026-03-09T00:01:56.657750625+05:30","value":1349.281137,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_blocked","type":"Point","data":{"time":"2026-03-09T00:01:56.657750625+05:30","value":0.008386,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_connecting","type":"Point","data":{"time":"2026-03-09T00:01:56.657750625+05:30","value":0,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_tls_handshaking","type":"Point","data":{"time":"2026-03-09T00:01:56.657750625+05:30","value":0,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_sending","type":"Point","data":{"time":"2026-03-09T00:01:56.657750625+05:30","value":0.193288,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_waiting","type":"Point","data":{"time":"2026-03-09T00:01:56.657750625+05:30","value":1348.949305,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_receiving","type":"Point","data":{"time":"2026-03-09T00:01:56.657750625+05:30","value":0.138544,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_failed","type":"Point","data":{"time":"2026-03-09T00:01:56.657750625+05:30","value":0,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"checks","type":"Point","data":{"time":"2026-03-09T00:01:56.657878839+05:30","value":1,"tags":{"check":"POST .../messages → 200 or 201","group":"","scenario":"default"}}}
+{"metric":"checks","type":"Point","data":{"time":"2026-03-09T00:01:56.657878839+05:30","value":1,"tags":{"check":"POST .../messages → has content","group":"","scenario":"default"}}}
+{"metric":"checks","type":"Point","data":{"time":"2026-03-09T00:01:56.657878839+05:30","value":1,"tags":{"check":"POST .../messages → p95 \u003c3500ms","group":"","scenario":"default"}}}
+{"metric":"vus","type":"Point","data":{"time":"2026-03-09T00:01:57.026201488+05:30","value":1,"tags":{}}}
+{"metric":"vus_max","type":"Point","data":{"time":"2026-03-09T00:01:57.026201488+05:30","value":1,"tags":{}}}
+{"metric":"vus","type":"Point","data":{"time":"2026-03-09T00:01:58.026253302+05:30","value":1,"tags":{}}}
+{"metric":"vus_max","type":"Point","data":{"time":"2026-03-09T00:01:58.026253302+05:30","value":1,"tags":{}}}
+{"metric":"data_sent","type":"Point","data":{"time":"2026-03-09T00:01:58.658771584+05:30","value":418,"tags":{"group":"","scenario":"default"}}}
+{"metric":"data_received","type":"Point","data":{"time":"2026-03-09T00:01:58.658771584+05:30","value":1457,"tags":{"group":"","scenario":"default"}}}
+{"metric":"iteration_duration","type":"Point","data":{"time":"2026-03-09T00:01:58.658771584+05:30","value":3350.490664,"tags":{"group":"","scenario":"default"}}}
+{"metric":"iterations","type":"Point","data":{"time":"2026-03-09T00:01:58.658771584+05:30","value":1,"tags":{"group":"","scenario":"default"}}}
+{"metric":"vus","type":"Point","data":{"time":"2026-03-09T00:01:59.0264317+05:30","value":1,"tags":{}}}
+{"metric":"vus_max","type":"Point","data":{"time":"2026-03-09T00:01:59.0264317+05:30","value":1,"tags":{}}}
+{"metric":"vus","type":"Point","data":{"time":"2026-03-09T00:02:00.026544356+05:30","value":1,"tags":{}}}
+{"metric":"vus_max","type":"Point","data":{"time":"2026-03-09T00:02:00.026544356+05:30","value":1,"tags":{}}}
+{"metric":"http_reqs","type":"Point","data":{"time":"2026-03-09T00:02:00.142252562+05:30","value":1,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_duration","type":"Point","data":{"time":"2026-03-09T00:02:00.142252562+05:30","value":1483.280336,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_blocked","type":"Point","data":{"time":"2026-03-09T00:02:00.142252562+05:30","value":0.005701,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_connecting","type":"Point","data":{"time":"2026-03-09T00:02:00.142252562+05:30","value":0,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_tls_handshaking","type":"Point","data":{"time":"2026-03-09T00:02:00.142252562+05:30","value":0,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_sending","type":"Point","data":{"time":"2026-03-09T00:02:00.142252562+05:30","value":0.028665,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_waiting","type":"Point","data":{"time":"2026-03-09T00:02:00.142252562+05:30","value":1483.14619,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_receiving","type":"Point","data":{"time":"2026-03-09T00:02:00.142252562+05:30","value":0.105481,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_failed","type":"Point","data":{"time":"2026-03-09T00:02:00.142252562+05:30","value":0,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"checks","type":"Point","data":{"time":"2026-03-09T00:02:00.142348835+05:30","value":1,"tags":{"check":"POST .../messages → 200 or 201","group":"","scenario":"default"}}}
+{"metric":"checks","type":"Point","data":{"time":"2026-03-09T00:02:00.142348835+05:30","value":1,"tags":{"check":"POST .../messages → has content","group":"","scenario":"default"}}}
+{"metric":"checks","type":"Point","data":{"time":"2026-03-09T00:02:00.142348835+05:30","value":1,"tags":{"check":"POST .../messages → p95 \u003c3500ms","group":"","scenario":"default"}}}
+{"metric":"vus","type":"Point","data":{"time":"2026-03-09T00:02:01.025886267+05:30","value":1,"tags":{}}}
+{"metric":"vus_max","type":"Point","data":{"time":"2026-03-09T00:02:01.025886267+05:30","value":1,"tags":{}}}
+{"metric":"vus","type":"Point","data":{"time":"2026-03-09T00:02:02.026257902+05:30","value":1,"tags":{}}}
+{"metric":"vus_max","type":"Point","data":{"time":"2026-03-09T00:02:02.026257902+05:30","value":1,"tags":{}}}
+{"metric":"data_sent","type":"Point","data":{"time":"2026-03-09T00:02:02.142934166+05:30","value":426,"tags":{"group":"","scenario":"default"}}}
+{"metric":"data_received","type":"Point","data":{"time":"2026-03-09T00:02:02.142934166+05:30","value":1786,"tags":{"group":"","scenario":"default"}}}
+{"metric":"iteration_duration","type":"Point","data":{"time":"2026-03-09T00:02:02.142934166+05:30","value":3484.107948,"tags":{"group":"","scenario":"default"}}}
+{"metric":"iterations","type":"Point","data":{"time":"2026-03-09T00:02:02.142934166+05:30","value":1,"tags":{"group":"","scenario":"default"}}}
+{"metric":"vus","type":"Point","data":{"time":"2026-03-09T00:02:03.026421363+05:30","value":1,"tags":{}}}
+{"metric":"vus_max","type":"Point","data":{"time":"2026-03-09T00:02:03.026421363+05:30","value":1,"tags":{}}}
+{"metric":"http_reqs","type":"Point","data":{"time":"2026-03-09T00:02:03.474877046+05:30","value":1,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_duration","type":"Point","data":{"time":"2026-03-09T00:02:03.474877046+05:30","value":1331.693435,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_blocked","type":"Point","data":{"time":"2026-03-09T00:02:03.474877046+05:30","value":0.007966,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_connecting","type":"Point","data":{"time":"2026-03-09T00:02:03.474877046+05:30","value":0,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_tls_handshaking","type":"Point","data":{"time":"2026-03-09T00:02:03.474877046+05:30","value":0,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_sending","type":"Point","data":{"time":"2026-03-09T00:02:03.474877046+05:30","value":0.050045,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_waiting","type":"Point","data":{"time":"2026-03-09T00:02:03.474877046+05:30","value":1331.522149,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_receiving","type":"Point","data":{"time":"2026-03-09T00:02:03.474877046+05:30","value":0.121241,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"http_req_failed","type":"Point","data":{"time":"2026-03-09T00:02:03.474877046+05:30","value":0,"tags":{"expected_response":"true","group":"","method":"POST","name":"chat_message","proto":"HTTP/1.1","scenario":"default","status":"200","url":"chat_message"}}}
+{"metric":"checks","type":"Point","data":{"time":"2026-03-09T00:02:03.475027182+05:30","value":1,"tags":{"check":"POST .../messages → 200 or 201","group":"","scenario":"default"}}}
+{"metric":"checks","type":"Point","data":{"time":"2026-03-09T00:02:03.475027182+05:30","value":1,"tags":{"check":"POST .../messages → has content","group":"","scenario":"default"}}}
+{"metric":"checks","type":"Point","data":{"time":"2026-03-09T00:02:03.475027182+05:30","value":1,"tags":{"check":"POST .../messages → p95 \u003c3500ms","group":"","scenario":"default"}}}
+{"metric":"vus","type":"Point","data":{"time":"2026-03-09T00:02:04.026097619+05:30","value":1,"tags":{}}}
+{"metric":"vus_max","type":"Point","data":{"time":"2026-03-09T00:02:04.026097619+05:30","value":1,"tags":{}}}
+{"metric":"vus","type":"Point","data":{"time":"2026-03-09T00:02:05.02551219+05:30","value":1,"tags":{}}}
+{"metric":"vus_max","type":"Point","data":{"time":"2026-03-09T00:02:05.02551219+05:30","value":1,"tags":{}}}
+{"metric":"data_sent","type":"Point","data":{"time":"2026-03-09T00:02:05.476203568+05:30","value":417,"tags":{"group":"","scenario":"default"}}}
+{"metric":"data_received","type":"Point","data":{"time":"2026-03-09T00:02:05.476203568+05:30","value":1476,"tags":{"group":"","scenario":"default"}}}
+{"metric":"iteration_duration","type":"Point","data":{"time":"2026-03-09T00:02:05.476203568+05:30","value":3333.193888,"tags":{"group":"","scenario":"default"}}}
+{"metric":"iterations","type":"Point","data":{"time":"2026-03-09T00:02:05.476203568+05:30","value":1,"tags":{"group":"","scenario":"default"}}}

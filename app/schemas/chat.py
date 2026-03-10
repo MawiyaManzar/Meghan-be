@@ -42,6 +42,7 @@ class ChatMessageResponse(BaseModel):
     conversation_id: int
     role: str
     content: str
+    s3_key: Optional[str] = None
     created_at: datetime
 
 class ConversationListResponse(BaseModel):

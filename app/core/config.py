@@ -69,6 +69,12 @@ class Settings(BaseSettings):
     AWS_PROFILE: Optional[str] = None  # Optional: AWS CLI profile name (defaults to "default")
     BEDROCK_MODEL_ID: str = "amazon.nova-micro-v1:0"  # Default model (lowest cost)
     
+    # === AWS S3 media storage ===
+    # Keep bucket private; backend returns temporary pre-signed URLs for reads.
+    S3_MEDIA_BUCKET: str = "meghan-media"
+    S3_MEDIA_PREFIX: str = "media"
+    S3_PRESIGNED_URL_TTL_SECONDS: int = 900
+    
     @field_validator("CORS_ORIGINS", mode="before")
     @classmethod
     def parse_cors_origins(cls, v):
@@ -109,6 +115,24 @@ class Settings(BaseSettings):
             elif v.startswith("sqlite:///"):
                 # Already absolute or explicit path, return as-is
                 return v
+        return v
+    
+    @field_validator("S3_MEDIA_PREFIX", mode="before")
+    @classmethod
+    def normalize_s3_prefix(cls, v):
+        """Normalize S3 key prefix by trimming leading/trailing slashes."""
+        if isinstance(v, str):
+            return v.strip("/")
+        return v
+    
+    @field_validator("S3_PRESIGNED_URL_TTL_SECONDS")
+    @classmethod
+    def validate_presigned_ttl(cls, v):
+        """Ensure pre-signed URL TTL is positive and reasonably bounded."""
+        if v <= 0:
+            raise ValueError("S3_PRESIGNED_URL_TTL_SECONDS must be > 0")
+        if v > 86400:
+            raise ValueError("S3_PRESIGNED_URL_TTL_SECONDS must be <= 86400")
         return v
     
     @property

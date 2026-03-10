@@ -5,11 +5,13 @@ import logging
 
 from contextlib import asynccontextmanager
 
-from fastapi import FastAPI
+from fastapi import FastAPI, Depends
 from fastapi.middleware.cors import CORSMiddleware
+from sqlalchemy import inspect
+from sqlalchemy.orm import Session
 
 from app.core.config import settings
-from app.core.database import init_mongodb, init_redis, close_mongodb, close_redis
+from app.core.database import get_db
 from app.routers import auth, llm, chat, users
 from app.routers import hearts
 from app.routers import onboarding, checkins
@@ -31,23 +33,15 @@ logger = logging.getLogger(__name__)
 async def lifespan(app: FastAPI):
     """
     Application lifespan manager.
-    Handles startup and shutdown events for database connections.
+    Handles startup and shutdown events.
     """
-    # Startup
     logger.info("Starting up Meghan API...")
-    # Initialize optional services (MongoDB and Redis)
-    # These are optional - app will continue if they fail
-    await init_mongodb()
-    await init_redis()
     logger.info("Application startup complete")
     
     yield
     
-    # Shutdown
     logger.info("Shutting down Meghan API...")
-    await close_mongodb()
-    await close_redis()
-    logger.info("All database connections closed")
+    logger.info("Shutdown complete")
 
 
 # Initialize FastAPI app
@@ -84,6 +78,43 @@ async def root():
 async def health_check():
     """Health check endpoint."""
     return {"status": "healthy"}
+
+
+@app.get("/debug/schema-check")
+async def schema_check(db: Session = Depends(get_db)):
+    """Debug endpoint to verify key DB tables/columns for A4 schema alignment."""
+    required_tables = [
+        "users",
+        "conversations",
+        "chat_messages",
+        "hearts_transactions",
+        "crisis_events",
+        "weekly_wellbeing_insights",
+    ]
+    required_columns = {
+        "chat_messages": ["s3_key"],
+        "weekly_wellbeing_insights": ["user_id", "week_start", "week_end", "summary_text"],
+    }
+
+    inspector = inspect(db.bind)
+    existing_tables = set(inspector.get_table_names())
+    missing_tables = [table for table in required_tables if table not in existing_tables]
+    missing_columns = {}
+    for table_name, columns in required_columns.items():
+        if table_name not in existing_tables:
+            missing_columns[table_name] = columns
+            continue
+        existing_columns = {column["name"] for column in inspector.get_columns(table_name)}
+        missing = [column for column in columns if column not in existing_columns]
+        if missing:
+            missing_columns[table_name] = missing
+
+    return {
+        "ok": not missing_tables and not missing_columns,
+        "required_tables": required_tables,
+        "missing_tables": missing_tables,
+        "missing_columns": missing_columns,
+    }
 
 
 # Include routers

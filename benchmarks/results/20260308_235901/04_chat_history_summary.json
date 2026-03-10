@@ -1,0 +1,211 @@
+{
+    "metrics": {
+        "http_req_duration": {
+            "avg": 7.156961262295085,
+            "min": 2.896773,
+            "med": 3.8849315,
+            "max": 383.214073,
+            "p(50)": 3.8849315,
+            "p(95)": 5.1899929999999985,
+            "p(99)": 11.54995352999994
+        },
+        "data_sent": {
+            "count": 34483,
+            "rate": 570.1143830102344
+        },
+        "http_req_receiving": {
+            "avg": 0.09271389344262304,
+            "min": 0.051047,
+            "med": 0.080869,
+            "max": 0.509129,
+            "p(50)": 0.080869,
+            "p(95)": 0.13392064999999997,
+            "p(99)": 0.2381365599999994
+        },
+        "vus": {
+            "value": 1,
+            "min": 1,
+            "max": 1
+        },
+        "vus_max": {
+            "value": 1,
+            "min": 1,
+            "max": 1
+        },
+        "http_req_waiting": {
+            "p(99)": 11.434282239999941,
+            "avg": 7.035094344262296,
+            "min": 2.692775,
+            "med": 3.767196,
+            "max": 383.061432,
+            "p(50)": 3.767196,
+            "p(95)": 5.069294449999999
+        },
+        "http_req_failed{name:chat_history}": {
+            "passes": 0,
+            "fails": 119,
+            "thresholds": {
+                "rate<0.01": false
+            },
+            "value": 0
+        },
+        "http_req_connecting": {
+            "p(95)": 0,
+            "p(99)": 0.12021350999999879,
+            "avg": 0.0027077704918032786,
+            "min": 0,
+            "med": 0,
+            "max": 0.178179,
+            "p(50)": 0
+        },
+        "data_received": {
+            "count": 39337,
+            "rate": 650.3665424839367
+        },
+        "http_req_tls_handshaking": {
+            "p(50)": 0,
+            "p(95)": 0,
+            "p(99)": 0,
+            "avg": 0,
+            "min": 0,
+            "med": 0,
+            "max": 0
+        },
+        "checks": {
+            "passes": 361,
+            "fails": 0,
+            "value": 1
+        },
+        "iteration_duration": {
+            "med": 504.841382,
+            "max": 506.332149,
+            "p(50)": 504.841382,
+            "p(95)": 506.1158458,
+            "p(99)": 506.29175994,
+            "avg": 504.8546475042018,
+            "min": 503.602159
+        },
+        "http_req_blocked": {
+            "min": 0.005781,
+            "med": 0.007429,
+            "max": 0.271858,
+            "p(50)": 0.007429,
+            "p(95)": 0.012857499999999996,
+            "p(99)": 0.17184936999999845,
+            "avg": 0.011840327868852463
+        },
+        "http_req_duration{expected_response:true}": {
+            "p(50)": 3.885676,
+            "p(95)": 5.195562,
+            "p(99)": 11.625188599999978,
+            "avg": 7.192169429752069,
+            "min": 3.182598,
+            "med": 3.885676,
+            "max": 383.214073
+        },
+        "iterations": {
+            "count": 119,
+            "rate": 1.9674509636115736
+        },
+        "http_reqs": {
+            "count": 122,
+            "rate": 2.017050567736235
+        },
+        "http_req_sending": {
+            "p(50)": 0.027628,
+            "p(95)": 0.04172084999999998,
+            "p(99)": 0.04566919999999999,
+            "avg": 0.029153024590163945,
+            "min": 0.020028,
+            "med": 0.027628,
+            "max": 0.107835
+        },
+        "http_req_failed": {
+            "passes": 1,
+            "fails": 121,
+            "value": 0.00819672131147541
+        },
+        "http_req_duration{name:chat_history}": {
+            "min": 3.182598,
+            "med": 3.884187,
+            "max": 5.606383,
+            "p(50)": 3.884187,
+            "p(95)": 5.0321494,
+            "p(99)": 5.488552859999999,
+            "avg": 3.9824246890756325,
+            "thresholds": {
+                "p(95)<1000": false
+            }
+        }
+    },
+    "setup_data": {
+        "conversationId": 10,
+        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJiZW5jaG1hcmtAbWVnaGFuLnRlc3QiLCJleHAiOjE3NzU1ODY3MjZ9.CLxMUL8GBjy-BiSaIXPguu57MBFqmX5lt5rwdYaTT0A"
+    },
+    "root_group": {
+        "name": "",
+        "path": "",
+        "id": "d41d8cd98f00b204e9800998ecf8427e",
+        "groups": {
+            "setup": {
+                "name": "setup",
+                "path": "::setup",
+                "id": "5c0f8025f7e0b6654089e5b00e950f1a",
+                "groups": {},
+                "checks": {
+                        "setup: login 200": {
+                            "name": "setup: login 200",
+                            "path": "::setup::setup: login 200",
+                            "id": "6e9dbdd23fef2718633c85607b71650a",
+                            "passes": 1,
+                            "fails": 0
+                        },
+                        "setup: token present": {
+                            "name": "setup: token present",
+                            "path": "::setup::setup: token present",
+                            "id": "87172715b3ba46c4a6ba87960ab72086",
+                            "passes": 1,
+                            "fails": 0
+                        },
+                        "setup: conversation 201": {
+                            "name": "setup: conversation 201",
+                            "path": "::setup::setup: conversation 201",
+                            "id": "671a5fe4f1c86dc8de9461b5fe3261d2",
+                            "passes": 1,
+                            "fails": 0
+                        },
+                        "setup: conversation id present": {
+                            "name": "setup: conversation id present",
+                            "path": "::setup::setup: conversation id present",
+                            "id": "915f0374f2df2e77bfc0605e249e37cd",
+                            "passes": 1,
+                            "fails": 0
+                        }
+                    }
+            }
+        },
+        "checks": {
+            "GET .../messages → 200": {
+                "path": "::GET .../messages → 200",
+                "id": "2dc753cf47bbf8624679447f39de2935",
+                "passes": 119,
+                "fails": 0,
+                "name": "GET .../messages → 200"
+            },
+            "GET .../messages → has messages": {
+                "path": "::GET .../messages → has messages",
+                "id": "fae461545634a3e13a61226a1d143919",
+                "passes": 119,
+                "fails": 0,
+                "name": "GET .../messages → has messages"
+            },
+            "GET .../messages → p95 <1000ms": {
+                "name": "GET .../messages → p95 <1000ms",
+                "path": "::GET .../messages → p95 <1000ms",
+                "id": "f4b4c11d2d0b2f0379ce27cc14585645",
+                "passes": 119,
+                "fails": 0
+            }
+        }
+    }
+}

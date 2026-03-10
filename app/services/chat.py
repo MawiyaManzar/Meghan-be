@@ -108,6 +108,14 @@ class ChatService:
 
             provider_result = self.provider.generate_chat_response(provider_prompt)
             content = provider_result.content or self._get_fallback_response(tier)
+            if not provider_result.success:
+                logger.warning(
+                    "Provider returned unsuccessful result (mode=%s, tier=%s, source=%s, error=%s)",
+                    mode_value.value,
+                    tier,
+                    source,
+                    provider_result.error,
+                )
             
             logger.info("AI response generated (success=%s, length=%s)", provider_result.success, len(content))
             
@@ -130,7 +138,7 @@ class ChatService:
             logger.error(f"Error generating chat response: {str(e)}", exc_info=True)
             return {
                 "success": False,
-                "error": f"Failed to generate response: {str(e)}",
+                "error": f"Failed to generate response ({type(e).__name__}): {str(e)}",
                 "content": self._get_fallback_response(tier)
             }
 

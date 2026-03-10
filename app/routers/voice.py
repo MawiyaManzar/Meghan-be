@@ -12,11 +12,13 @@ import logging
 from typing import Optional
 
 from fastapi import APIRouter, UploadFile, File, HTTPException, status
+from app.core.config import settings
 from app.core.dependencies import CurrentUser, DatabaseSession
 from app.models.user import Conversation, ChatMessage
 from app.schemas.chat import ChatMessageResponse
 from app.schemas.voice import VoiceMessageResponse
 from app.services.chat import chat_service
+from app.services.s3_storage import S3StorageService, S3StorageError
 from app.services.stt import (
     transcribe_audio_assemblyai,
     STTServiceError,
@@ -30,6 +32,11 @@ router = APIRouter(prefix="/api/chat", tags=["voice"])
 
 
 MAX_AUDIO_BYTES = 10 * 1024 * 1024  # 10 MB safety limit for uploads
+s3_storage_service = S3StorageService(
+    bucket=settings.S3_MEDIA_BUCKET,
+    region_name=settings.AWS_REGION,
+    prefix=settings.S3_MEDIA_PREFIX,
+)
 
 
 @router.post(
@@ -88,7 +95,23 @@ async def voice_message(
         f"from user {current_user.id} (filename={audio.filename}, size={len(audio_bytes)} bytes)"
     )
 
-    # 3) Transcribe with AssemblyAI
+    # 3) Persist raw voice clip in private S3 (best-effort: continue if upload fails)
+    uploaded_s3_key: Optional[str] = None
+    try:
+        upload_result = s3_storage_service.upload_media_bytes(
+            data_bytes=audio_bytes,
+            content_type=audio.content_type or "application/octet-stream",
+            owner_user_id=current_user.id,
+            entity_type="chat_voice",
+            entity_id=conversation_id,
+        )
+        uploaded_s3_key = upload_result.s3_key
+    except S3StorageError as e:
+        logger.warning(
+            f"S3 upload failed for voice clip in conversation {conversation_id}: {e}"
+        )
+
+    # 4) Transcribe with AssemblyAI
     try:
         transcript = await transcribe_audio_assemblyai(
             audio_bytes=audio_bytes,
@@ -113,11 +136,12 @@ async def voice_message(
             detail="Could not transcribe audio (empty transcript). Please try again.",
         )
 
-    # 4) Save user message (as text, originating from voice)
+    # 5) Save user message (as text, originating from voice) + media key if uploaded
     user_message = ChatMessage(
         conversation_id=conversation_id,
         role="user",
         content=transcript,
+        s3_key=uploaded_s3_key,
     )
     db.add(user_message)
     db.commit()
@@ -128,7 +152,7 @@ async def voice_message(
         f"for conversation {conversation_id}"
     )
 
-    # 5) Build minimal chat history for context (all previous messages)
+    # 6) Build minimal chat history for context (all previous messages)
     existing_messages = (
         db.query(ChatMessage)
         .filter(
@@ -201,8 +225,18 @@ async def voice_message(
         db.commit()
         db.refresh(ai_message)
 
-    # 7) (Optional) TTS/audio_url will be added in a later task (V5)
+    # 8) Return temporary read URL to the uploaded user voice clip if requested.
     audio_url: Optional[str] = None
+    if include_audio and uploaded_s3_key:
+        try:
+            audio_url = s3_storage_service.generate_presigned_get_url(
+                s3_key=uploaded_s3_key,
+                expires_in_seconds=settings.S3_PRESIGNED_URL_TTL_SECONDS,
+            )
+        except S3StorageError as e:
+            logger.warning(
+                f"Failed to generate presigned URL for conversation {conversation_id}: {e}"
+            )
 
     return VoiceMessageResponse(
         user_message=ChatMessageResponse.model_validate(user_message),
