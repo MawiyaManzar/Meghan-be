@@ -79,7 +79,7 @@ def test_lambda_handler_counts_user_level_failure_and_continues():
     class FlakySummaryService:
         def build_weekly_summary(self, user_id, week_start, week_end):
             if user_id == 101:
-                raise RuntimeError("bedrock timeout")
+                raise RuntimeError("provider timeout")
             return "Stable week with steady routines.", "Green"
 
     repo = StubRepo()

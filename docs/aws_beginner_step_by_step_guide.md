@@ -161,7 +161,7 @@ Your EC2 backend calls Bedrock API when user needs AI response.
 Basic requirements:
 - AWS region supports Bedrock
 - model access enabled in Bedrock console
-- IAM permission: `bedrock:InvokeModel`
+- (If using AWS services) ensure your IAM permissions match the services you actually use (example: S3 access for media uploads).
 
 Process:
 1. Build prompt in backend.
@@ -181,7 +181,9 @@ DATABASE_URL=postgresql+psycopg2://...
 S3_MEDIA_BUCKET=your-private-bucket
 S3_MEDIA_PREFIX=media
 S3_PRESIGNED_URL_TTL_SECONDS=900
-BEDROCK_MODEL_ID=amazon.nova-micro-v1:0
+# Gemini (used by backend AI)
+GEMINI_API_KEY=your_key_here
+GEMINI_MODEL=gemini-2.5-flash
 ```
 
 If using direct access keys (not preferred on EC2 role):

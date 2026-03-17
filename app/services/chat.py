@@ -4,8 +4,8 @@ Manages chat history, context, and LLM interactions.
 """
 import logging
 from typing import List, Dict, Any, Optional, Protocol
-from app.services.bedrock_contract import ChatPrompt, ChatMode
-from app.services.aws_bedrock import BedrockChatService
+from app.services.chat_contract import ChatPrompt, ChatMode
+from app.services.gemini_provider import GeminiChatService
 from app.services.prompts import (
     generate_system_instructions
 )
@@ -24,7 +24,7 @@ class ChatService:
     
     def __init__(self, provider: Optional[ChatProvider] = None):
         """Initialize chat service with an injectable AI provider."""
-        self.provider = provider or BedrockChatService()
+        self.provider = provider or GeminiChatService()
     
     async def generate_response(
         self,

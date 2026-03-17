@@ -40,7 +40,7 @@ Hardware/Runtime (replace with exact values used):
 - App server: `uvicorn` (or gunicorn + uvicorn workers)
 - Database: RDS PostgreSQL
 - Storage: S3 private bucket + pre-signed URL flow
-- AI: Bedrock model (`BEDROCK_MODEL_ID`)
+- AI: Gemini model (`GEMINI_MODEL`)
 
 Software setup:
 - Same `.env` style as runtime.

@@ -499,7 +499,7 @@ class TestChatEndpoints:
     def test_send_message_uses_mocked_provider_and_returns_reply(self, client, auth_headers, monkeypatch):
         """Integration: endpoint should call provider seam and return persisted model reply."""
         from app.services.chat import chat_service
-        from app.services.bedrock_contract import ChatResult
+        from app.services.chat_contract import ChatResult
 
         class FakeProvider:
             def __init__(self):
@@ -543,7 +543,7 @@ class TestChatEndpoints:
     def test_send_message_provider_receives_history_context(self, client, auth_headers, monkeypatch):
         """Integration: provider prompt should include previous messages for context continuity."""
         from app.services.chat import chat_service
-        from app.services.bedrock_contract import ChatResult
+        from app.services.chat_contract import ChatResult
 
         class FakeProvider:
             def __init__(self):

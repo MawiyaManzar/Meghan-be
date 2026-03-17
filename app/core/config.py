@@ -59,15 +59,10 @@ class Settings(BaseSettings):
     GEMINI_MAX_OUTPUT_TOKENS: int = 500
     GEMINI_THINKING_BUDGET: int = 200  # Note: May need special handling depending on model support
     
-    # === AWS Bedrock (uses IAM credentials, not API keys) ===
-    # AWS credentials are loaded automatically by boto3 from:
-    # 1. Environment variables: AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY
-    # 2. AWS credentials file: ~/.aws/credentials (via AWS CLI)
-    # 3. IAM role (if running on EC2/Lambda/EB)
-    # Optional: explicitly set if not using default profile/region
-    AWS_REGION: str = "us-east-1"  # Bedrock region
+    # === AWS (only if you use AWS services like S3) ===
+    # If you are not using AWS at all, you can ignore these.
+    AWS_REGION: str = "us-east-1"
     AWS_PROFILE: Optional[str] = None  # Optional: AWS CLI profile name (defaults to "default")
-    BEDROCK_MODEL_ID: str = "amazon.nova-micro-v1:0"  # Default model (lowest cost)
     
     # === AWS S3 media storage ===
     # Keep bucket private; backend returns temporary pre-signed URLs for reads.

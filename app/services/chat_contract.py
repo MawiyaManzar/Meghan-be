@@ -1,9 +1,9 @@
 """
-Internal Bedrock contract types for chat generation.
+Internal chat provider contract types.
 
-These models define the input/output shape expected by the Bedrock wrapper.
-They are intentionally lightweight so they can be shared by service code and tests
-without importing router or ORM modules.
+These models define the input/output shape expected by the AI provider used by
+`ChatService`. They are intentionally lightweight so they can be shared by
+service code and tests without importing router or ORM modules.
 """
 
 from enum import Enum
